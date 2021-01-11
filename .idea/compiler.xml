@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="18_Matador" target="1.5" />
+      <module name="18_Matador" target="" />
     </bytecodeTargetLevel>
   </component>
 </project>
