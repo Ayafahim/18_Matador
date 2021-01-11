@@ -8,6 +8,11 @@ abstract class Field {
         this.name = name;
     }
 
+    public void landOnField(Player player){
+        System.out.println(player +" er landet");
+    }
+
+
 
 
 }
