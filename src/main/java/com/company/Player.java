@@ -13,7 +13,7 @@ public class Player {
     private int ownedStreets;
     private boolean jailed;
     private int account;
-    GUI gui = new GUI();
+
 
     Player(String name,int account){
         this.name = name;
@@ -86,8 +86,9 @@ public class Player {
             setAccount(account-rent);
         }
         else{
-            gui.showMessage("Du har ikke nok penge");
+            System.out.println("hhdhd");
         }
+
     }
 
 

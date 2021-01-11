@@ -1,6 +1,6 @@
 package com.company;
 
-abstract class Field {
+public abstract class Field {
 
     String name;
 
