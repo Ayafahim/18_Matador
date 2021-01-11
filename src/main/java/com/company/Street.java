@@ -1,5 +1,7 @@
 package com.company;
 
+import com.company.Models.Player;
+
 public class Street extends Field{
 
     int price;
