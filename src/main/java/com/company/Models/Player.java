@@ -1,6 +1,7 @@
-package com.company;
+package com.company.Models;
 
-import gui_main.GUI;
+import com.company.Views.BoardGUI;
+import gui_fields.GUI_Player;
 
 public class Player {
 
@@ -13,9 +14,15 @@ public class Player {
     private int ownedStreets;
     private boolean jailed;
     private int account;
-    GUI gui = new GUI();
 
-    Player(String name,int account){
+    private GUI_Player gui_player;
+
+    public static BoardGUI boardGUI = new BoardGUI();
+
+    private Player[] players = new Player[boardGUI.getPlayerAmount()];
+
+
+    public Player(String name, int account){
         this.name = name;
         this.account = account;
         this.ownedBrewerys = 0;
@@ -80,14 +87,24 @@ public class Player {
         this.ownedHouses = ownedHouses;
     }
 
+    public Player[] getPlayers() {
+        return players;
+    }
+
     public void payRent(int rent, Player owner){
         if (account > rent){
             owner.setAccount(account+rent);
             setAccount(account-rent);
         }
         else{
-            gui.showMessage("Du har ikke nok penge");
+            boardGUI.getGui().showMessage("Du har ikke nok penge");
         }
+    }
+
+    // Tilføjer spilleren til brættet
+    public void createPlayer() {
+        gui_player = new GUI_Player(name, 0);
+        boardGUI.getGui().addPlayer(gui_player);
     }
 
 
