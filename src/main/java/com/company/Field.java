@@ -1,5 +1,7 @@
 package com.company;
 
+import com.company.Models.Player;
+
 abstract class Field {
 
     String name;

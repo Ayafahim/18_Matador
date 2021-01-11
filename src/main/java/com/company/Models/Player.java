@@ -1,7 +1,11 @@
 package com.company.Models;
 
+import com.company.Main;
 import com.company.Views.BoardGUI;
+import gui_fields.GUI_Car;
 import gui_fields.GUI_Player;
+
+import java.awt.*;
 
 public class Player {
 
@@ -15,6 +19,7 @@ public class Player {
     private boolean jailed;
     private int account;
 
+    private GUI_Car car = new GUI_Car();
     private GUI_Player gui_player;
 
     public static BoardGUI boardGUI = new BoardGUI();
@@ -103,7 +108,31 @@ public class Player {
 
     // Tilføjer spilleren til brættet
     public void createPlayer() {
-        gui_player = new GUI_Player(name, 0);
+        gui_player = new GUI_Player(name, 0, car);
+
+        String carColor = boardGUI.getGui().getUserSelection("Hvilken farve bil vil du have? Vælg en farve.", "Gul", "Rød", "Blå", "Sort", "Hvid", "Orange");
+
+        switch (carColor) {
+            case "Gul":
+                car.setPrimaryColor(Color.YELLOW);
+                break;
+            case "Rød":
+                car.setPrimaryColor(Color.RED);
+                break;
+            case "Blå":
+                car.setPrimaryColor(Color.BLUE);
+                break;
+            case "Sort":
+                car.setPrimaryColor(Color.BLACK);
+                break;
+            case "Hvid":
+                car.setPrimaryColor(Color.WHITE);
+                break;
+            case "Orange":
+                car.setPrimaryColor(Color.ORANGE);
+                break;
+        }
+
         boardGUI.getGui().addPlayer(gui_player);
     }
 
