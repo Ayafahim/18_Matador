@@ -1,6 +1,6 @@
 package com.company;
 
-import com.company.Models.Player;
+//import com.company.Models.Player;
 
 public class Tax extends Field {
 
@@ -30,7 +30,7 @@ public class Tax extends Field {
         this.taxFee = taxFee;
     }
 
-    @Override
+  /*  @Override
     public void landOnField(Player player) {
         super.landOnField(player);
         System.out.println("Betal " + getTaxFee() + "KR");
@@ -39,4 +39,6 @@ public class Tax extends Field {
     public void payTaxFee(){
 
     }
+
+   */
 }

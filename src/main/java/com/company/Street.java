@@ -1,20 +1,48 @@
 package com.company;
 
-import com.company.Models.Player;
+//import com.company.Models.Player;
 
-public class Street extends Field{
+import java.awt.*;
+
+public class Street extends Field {
 
     int price;
     String subText;
-    Player owner;
 
-    public Street(String name, String subText,int price) {
-        super(name);
+    public Street(String name, String subText, int price,Color bgColor, Color fgColor) {
+        super(name, bgColor, fgColor);
         this.subText = subText;
         this.price = price;
     }
 
+    //Player owner;
+
+
+
     @Override
+    public void setName(String name) {
+        super.setName(name);
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    @Override
+    public String getName() {
+        return super.getName();
+    }
+
+    public void setSubText(String subText) {
+        this.subText = subText;
+    }
+
+    public String getSubText() {
+        return subText;
+    }
+
+
+    /* @Override
     public void landOnField(Player player) {
         super.landOnField(player);
         if (player ==  owner){
@@ -31,4 +59,6 @@ public class Street extends Field{
 
         }
     }
+}
+*/
 }

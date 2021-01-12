@@ -1,4 +1,4 @@
-package com.company;
+/*package com.company;
 
 import com.company.Controllers.GameController;
 import com.company.Views.BoardGUI;
@@ -9,4 +9,8 @@ public class Main {
         GameController gameController = new GameController();
         gameController.setupGame();
     }
+
 }
+
+ */
+

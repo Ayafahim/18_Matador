@@ -1,15 +1,18 @@
 package com.company;
 
-import com.company.Models.Player;
+//import com.company.Models.Player;
+
+import java.awt.*;
 
 public class Parking extends Field{
 
     String subText;
 
-    public Parking(String name,String subText) {
-        super(name);
-        subText = subText;
+    public Parking(String name, String subText, Color bgColor, Color fgColor) {
+        super(name, bgColor, fgColor);
+        this.subText = subText;
     }
+
 
     public void setSubText(String subText) {
         this.subText = subText;
@@ -19,10 +22,13 @@ public class Parking extends Field{
         return subText;
     }
 
+    /*
     @Override
     public void landOnField(Player player) {
         super.landOnField(player);
         System.out.println("Det er sker intet");
     }
+
+     */
 }
 
