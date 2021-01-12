@@ -11,12 +11,16 @@ public class BoardGUI {
 
     public static void main(String[] args) {
         Field[] fields = {
-                new
-                new Street("Rødovrevej","1.200KR",1200, Color.cyan,Color.BLACK),
-                new Street("Hvidovrevej","1.200KR",1200,Color.cyan,Color.BLACK),
-                new Street("Rodskildevej","2.000KR",2000,Color.cyan,Color.BLACK),
-                new Street("Valby Langgade","2.000KR",2000,Color.cyan,Color.BLACK),
-                new Street("Allégade","2.400KR",2400,Color.cyan,Color.BLACK),
+                new Start("Start", Color.RED, Color.BLACK,4000, "Modtag kr. 4000"),
+                new Street("Rødovrevej","1.200KR",1200, Color.blue,Color.BLACK),
+                new Chance("Prøv lykken",Color.BLACK,Color.GREEN),
+                new Street("Hvidovrevej","1.200KR",1200,Color.blue,Color.BLACK),
+                new Tax("Betal ind",Color.cyan,Color.black,4000,"Betal 4000"),
+                new Street("Rodskildevej","2.000KR",2000,Color.ORANGE,Color.BLACK),
+                new Chance("Prøv lykken",Color.BLACK,Color.GREEN),
+                new Street("Valby Langgade","2.000KR",2000,Color.ORANGE,Color.BLACK),
+                new Street("Allégade","2.400KR",2400,Color.ORANGE,Color.BLACK),
+                new Jail("På Besøg", Color.BLACK,Color.WHITE, 0),
                 new Street("Frederiksberg Allé","2.800KR",2800,Color.cyan,Color.BLACK),
                 new Street("Bülowsvej","2800KR",2800,Color.cyan,Color.BLACK),
                 new Street("Gl.Kongevej","3.200KR",3200,Color.cyan,Color.BLACK),

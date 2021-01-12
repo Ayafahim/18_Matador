@@ -10,5 +10,14 @@ public class Jail extends Field {
         super(name, bgColor, fgColor);
         this.jailFee = jailFee;
     }
+
+    void setJailFee (int jailFee){
+        this.jailFee = jailFee;
+
+    }
+
+    int getJailFee(){
+        return jailFee;
+    }
 }
 
