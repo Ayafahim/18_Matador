@@ -2,16 +2,17 @@ package com.company;
 
 //import com.company.Models.Player;
 
+import java.awt.*;
+
 public class Tax extends Field {
 
     int taxFee;
     String subText;
 
-
-    public Tax(String name, String subText,int taxFee) {
-        super(name);
-        this.subText = subText;
+    public Tax(String name, Color bgColor, Color fgColor, int taxFee, String subText) {
+        super(name, bgColor, fgColor);
         this.taxFee = taxFee;
+        this.subText = subText;
     }
 
     public String getSubText() {

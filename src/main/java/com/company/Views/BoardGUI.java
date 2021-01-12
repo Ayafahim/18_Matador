@@ -19,6 +19,20 @@ public class BoardGUI {
                 new Street("Frederiksberg Allé","2.800KR",2800,Color.cyan,Color.BLACK),
                 new Street("Bülowsvej","2800KR",2800,Color.cyan,Color.BLACK),
                 new Street("Gl.Kongevej","3.200KR",3200,Color.cyan,Color.BLACK),
+                new Street("Gl.Kongevej","3.200KR",3200,Color.cyan,Color.BLACK),
+                new Street("Gl.Kongevej","3.200KR",3200,Color.cyan,Color.BLACK),
+                new Street("Gl.Kongevej","3.200KR",3200,Color.cyan,Color.BLACK),
+                new Street("Gl.Kongevej","3.200KR",3200,Color.cyan,Color.BLACK),
+                new Street("Gl.Kongevej","3.200KR",3200,Color.cyan,Color.BLACK),
+                new Street("Gl.Kongevej","3.200KR",3200,Color.cyan,Color.BLACK),
+                new Street("Gl.Kongevej","3.200KR",3200,Color.cyan,Color.BLACK),
+                new Street("Gl.Kongevej","3.200KR",3200,Color.cyan,Color.BLACK),
+                new Street("Gl.Kongevej","3.200KR",3200,Color.cyan,Color.BLACK),
+                new Street("Gl.Kongevej","3.200KR",3200,Color.cyan,Color.BLACK),
+                new Street("Gl.Kongevej","3.200KR",3200,Color.cyan,Color.BLACK),
+                new Street("Gl.Kongevej","3.200KR",3200,Color.cyan,Color.BLACK),
+                new Street("Gl.Kongevej","3.200KR",3200,Color.cyan,Color.BLACK),
+                new Street("Gl.Kongevej","3.200KR",3200,Color.cyan,Color.BLACK),
         };
 
 
