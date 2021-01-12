@@ -13,7 +13,12 @@ public class Parking extends Field{
         this.subText = subText;
     }
 
-
+    void setsubText(String subText) {
+        this.subText = subText;
+    }
+    String getsubText(){
+        return subText;
+    }
     public void setSubText(String subText) {
         this.subText = subText;
     }

@@ -29,5 +29,9 @@ public class Fleet extends Field {
 
     public void setPrice(int price) {
         Price = price;
+
     }
+
+
+
 }

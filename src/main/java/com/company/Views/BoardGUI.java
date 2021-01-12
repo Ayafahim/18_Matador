@@ -11,6 +11,7 @@ public class BoardGUI {
 
     public static void main(String[] args) {
         Field[] fields = {
+                new
                 new Street("Rødovrevej","1.200KR",1200, Color.cyan,Color.BLACK),
                 new Street("Hvidovrevej","1.200KR",1200,Color.cyan,Color.BLACK),
                 new Street("Rodskildevej","2.000KR",2000,Color.cyan,Color.BLACK),
