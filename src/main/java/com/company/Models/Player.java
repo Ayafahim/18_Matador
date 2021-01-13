@@ -1,6 +1,10 @@
-package com.company;
+package com.company.Models;
 
+import gui_fields.GUI_Car;
+import gui_fields.GUI_Player;
 import gui_main.GUI;
+
+import java.awt.*;
 
 public class Player {
 
@@ -13,14 +17,17 @@ public class Player {
     private int ownedStreets;
     private boolean jailed;
     private int account;
+    public GUI_Player gui_player;
 
 
-    Player(String name,int account){
-        this.name = name;
-        this.account = account;
-        this.ownedBrewerys = 0;
-        this.ownedFleets = 0;
-        this.ownedStreets = 0;
+    public Player(GUI gui, Color color){
+
+       name = gui.getUserString("Skriv navn");
+       GUI_Car car = new GUI_Car();
+       car.setPrimaryColor(color);
+
+       gui_player = new GUI_Player(name,30000,car);
+       gui.addPlayer(gui_player);
     }
 
     public int getAccount() {
@@ -91,8 +98,9 @@ public class Player {
 
     }
 
-
-
+    public GUI_Player getGui_player() {
+        return gui_player;
+    }
 }
 
 

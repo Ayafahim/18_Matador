@@ -26,13 +26,5 @@ public class Brewery extends Field {
         this.subText = subText;
     }
 
-    @Override
-    public Color getBgColor() {
-        return super.getBgColor();
-    }
 
-    @Override
-    public Color getFgColor() {
-        return super.getFgColor();
-    }
 }

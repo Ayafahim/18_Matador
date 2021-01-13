@@ -14,10 +14,12 @@ public abstract class Field {
     }
 
     public void setName(String name) {
+
         this.name = name;
     }
 
     public String getName() {
+
         return name;
     }
 
@@ -41,8 +43,6 @@ public abstract class Field {
     /* public void landOnField(Player player){
         System.out.println(player +" er landet");
     }
-
-
 */
 
 }

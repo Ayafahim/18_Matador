@@ -1,6 +1,7 @@
 package com.company;
 
-//import com.company.Models.Player;
+
+import com.company.Models.Player;
 
 import java.awt.*;
 
@@ -27,13 +28,7 @@ public class Parking extends Field{
         return subText;
     }
 
-    /*
-    @Override
-    public void landOnField(Player player) {
-        super.landOnField(player);
-        System.out.println("Det er sker intet");
-    }
 
-     */
+
 }
 

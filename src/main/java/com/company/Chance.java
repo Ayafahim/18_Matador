@@ -9,8 +9,5 @@ public class Chance extends Field {
         super(name, bgColor, fgColor);
     }
 
-    @Override
-    public String getName() {
-        return super.getName();
-    }
+
 }

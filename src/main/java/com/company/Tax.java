@@ -4,7 +4,7 @@ package com.company;
 
 import java.awt.*;
 
-public class Tax extends Field {
+public class Tax extends Field{
 
     int taxFee;
     String subText;
