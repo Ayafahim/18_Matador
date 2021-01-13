@@ -1,4 +1,4 @@
-package com.company;
+package com.company.Models.Fields;
 
 import java.awt.*;
 
