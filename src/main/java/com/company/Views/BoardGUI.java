@@ -1,28 +1,28 @@
 package com.company.Views;
 
-import com.company.*;
+import com.company.Models.Fields.*;
 import gui_fields.*;
-import gui_main.GUI;
 
 import java.awt.*;
 
 
 public class BoardGUI {
 
-    public static void main(String[] args) {
-        Field[] fields = {
+
+        public static Field[] fields = {
                 new Start("Start", Color.RED, Color.BLACK,4000, "Modtag kr. 4000"),
                 new Street("Rødovrevej","1.200KR",1200, Color.blue,Color.BLACK),
                 new Chance("Prøv lykken",Color.BLACK,Color.GREEN),
                 new Street("Hvidovrevej","1.200KR",1200,Color.blue,Color.BLACK),
-                new Tax("Betal ind",Color.cyan,Color.black,4000,"Betal 4000"),
+                new Tax("Skat",Color.cyan,Color.BLACK,4000,"betal"),
+                new Fleet("Scandilines","Færge",4000,Color.BLUE,Color.BLACK),
                 new Street("Rodskildevej","2.000KR",2000,Color.ORANGE,Color.BLACK),
                 new Chance("Prøv lykken",Color.BLACK,Color.GREEN),
                 new Street("Valby Langgade","2.000KR",2000,Color.ORANGE,Color.BLACK),
                 new Street("Allégade","2.400KR",2400,Color.ORANGE,Color.BLACK),
                 new Jail("På Besøg", Color.BLACK,Color.WHITE, 0),
                 new Street("Frederiksberg Allé","2.800KR",2800,Color.cyan,Color.BLACK),
-                new Brewery("Turborg Squash", "3.000KR",3000, Color.RED, Color.BLACK),
+                new Brewery("Turborg Squash", "3.000KR",3000, Color.CYAN, Color.BLACK),
                 new Street("Bülowsvej","2.800KR",2800,Color.cyan,Color.BLACK),
                 new Street("Gl.Kongevej","3.200KR",3200,Color.cyan,Color.BLACK),
                 new Fleet("Mols-Linien","4.000kr",4000,Color.RED,Color.BLACK),
@@ -52,11 +52,7 @@ public class BoardGUI {
                 new Street("Rådhuspladsen","8.000KR",8000,Color.MAGENTA,Color.BLACK),
         };
 
-
-        GUI board = new GUI(guiFieldsConvert(fields));
-    }
-
-     private static GUI_Field[] guiFieldsConvert(Field[] fields){
+     public static GUI_Field[] guiFieldsConvert(Field[] fields){
         GUI_Field[] gui_fields = new GUI_Field[fields.length];
         for (int i = 0; i < fields.length; i++){
             if (fields[i] instanceof Street){
@@ -100,11 +96,21 @@ public class BoardGUI {
                 gui_fields[i].setBackGroundColor(fields[i].getBgColor());
                 gui_fields[i].setForeGroundColor(fields[i].getFgColor());
             }
-
-
+            else if (fields[i] instanceof Start){
+                gui_fields[i] = new GUI_Start();
+                gui_fields[i].setTitle(fields[i].getName());
+                gui_fields[i].setBackGroundColor(fields[i].getBgColor());
+                gui_fields[i].setForeGroundColor(fields[i].getFgColor());
+            }
+            else if (fields[i] instanceof Jail){
+                gui_fields[i] = new GUI_Jail();
+                gui_fields[i].setTitle(fields[i].getName());
+                gui_fields[i].setSubText(gui_fields[i].getSubText());
+                gui_fields[i].setBackGroundColor(fields[i].getBgColor());
+                gui_fields[i].setForeGroundColor(fields[i].getFgColor());
+            }
         }
         return gui_fields;
-
     }
 
 }

@@ -1,4 +1,8 @@
-package com.company;
+package com.company.Models.Fields;
+
+import com.company.Models.Player;
+import gui_fields.GUI_Field;
+import gui_main.GUI;
 
 import java.awt.*;
 
@@ -7,6 +11,7 @@ public abstract class Field {
     String name;
     Color bgColor, fgColor;
 
+
     public Field(String name, Color bgColor, Color fgColor){
         this.name = name;
         this.bgColor = bgColor;
@@ -14,10 +19,12 @@ public abstract class Field {
     }
 
     public void setName(String name) {
+
         this.name = name;
     }
 
     public String getName() {
+
         return name;
     }
 
@@ -38,11 +45,9 @@ public abstract class Field {
     }
 
 
-    /* public void landOnField(Player player){
-        System.out.println(player +" er landet");
+    public Class landOnField(){
+        return this.getClass();
     }
 
-
-*/
 
 }

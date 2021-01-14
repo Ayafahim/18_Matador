@@ -1,10 +1,10 @@
-package com.company;
+package com.company.Models.Fields;
 
 //import com.company.Models.Player;
 
 import java.awt.*;
 
-public class Tax extends Field {
+public class Tax extends Field{
 
     int taxFee;
     String subText;

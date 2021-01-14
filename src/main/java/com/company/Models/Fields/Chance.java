@@ -1,4 +1,4 @@
-package com.company;
+package com.company.Models.Fields;
 
 import java.awt.*;
 
@@ -9,8 +9,5 @@ public class Chance extends Field {
         super(name, bgColor, fgColor);
     }
 
-    @Override
-    public String getName() {
-        return super.getName();
-    }
+
 }

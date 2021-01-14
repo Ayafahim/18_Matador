@@ -1,10 +1,14 @@
-package com.company;
+package com.company.Models.Fields;
 
 import java.awt.*;
 
 public class Jail extends Field {
 
+
+
+
     int jailFee;
+
 
     public Jail(String name, Color bgColor, Color fgColor, int jailFee) {
         super(name, bgColor, fgColor);
@@ -16,8 +20,10 @@ public class Jail extends Field {
 
     }
 
-    int getJailFee(){
+    public int getJailFee(){
         return jailFee;
     }
+
+
 }
 
