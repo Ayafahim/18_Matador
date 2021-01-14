@@ -9,7 +9,7 @@ import java.awt.*;
 public class Player {
 
     private String name;
-    private int playerPosition = 0;
+    public int playerPosition = 0;
     private int ownedBrewerys;
     private int ownedHouses;
     private int ownedHotels;
@@ -22,12 +22,16 @@ public class Player {
 
     public Player(GUI gui, Color color){
 
-       name = gui.getUserString("Skriv navn");
+       this.name = gui.getUserString("Skriv navn");
        GUI_Car car = new GUI_Car();
        car.setPrimaryColor(color);
 
        gui_player = new GUI_Player(name,30000,car);
        gui.addPlayer(gui_player);
+    }
+
+    public String getName() {
+        return name;
     }
 
     public int getAccount() {

@@ -52,10 +52,6 @@ public class BoardGUI {
                 new Street("Rådhuspladsen","8.000KR",8000,Color.MAGENTA,Color.BLACK),
         };
 
-
-
-
-
      public static GUI_Field[] guiFieldsConvert(Field[] fields){
         GUI_Field[] gui_fields = new GUI_Field[fields.length];
         for (int i = 0; i < fields.length; i++){
@@ -112,13 +108,9 @@ public class BoardGUI {
                 gui_fields[i].setSubText(gui_fields[i].getSubText());
                 gui_fields[i].setBackGroundColor(fields[i].getBgColor());
                 gui_fields[i].setForeGroundColor(fields[i].getFgColor());
-
             }
-
-
         }
         return gui_fields;
-
     }
 
 }

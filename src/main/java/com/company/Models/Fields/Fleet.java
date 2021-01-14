@@ -13,7 +13,6 @@ public class Fleet extends Field {
         this.subText = subText;
     }
 
-
     public void setSubText(String subText) {
         this.subText = subText;
     }
@@ -38,11 +37,7 @@ public class Fleet extends Field {
 
     public void setPrice(int price) {
         Price = price;
-
     }
-
-
-
 }
 
 
