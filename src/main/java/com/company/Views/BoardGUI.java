@@ -20,7 +20,7 @@ public class BoardGUI {
                 new Chance("Prøv lykken",Color.BLACK,Color.GREEN),
                 new Street("Valby Langgade","2.000KR",2000,Color.ORANGE,Color.BLACK),
                 new Street("Allégade","2.400KR",2400,Color.ORANGE,Color.BLACK),
-                new Jail("På Besøg", Color.BLACK,Color.WHITE, 0),
+                new Jail("På Besøg", Color.white,Color.black, 0),
                 new Street("Frederiksberg Allé","2.800KR",2800,Color.cyan,Color.BLACK),
                 new Brewery("Turborg Squash", "3.000KR",3000, Color.CYAN, Color.BLACK),
                 new Street("Bülowsvej","2.800KR",2800,Color.cyan,Color.BLACK),
@@ -50,6 +50,7 @@ public class BoardGUI {
                 new Street("Fredriksberggade","7000KR",7000,Color.MAGENTA,Color.BLACK),
                 new Tax("Ekstra ordinær Statskat",Color.BLUE,Color.BLACK,2000,"2000KR"),
                 new Street("Rådhuspladsen","8.000KR",8000,Color.MAGENTA,Color.BLACK),
+
         };
 
 
@@ -57,14 +58,16 @@ public class BoardGUI {
 
 
      public static GUI_Field[] guiFieldsConvert(Field[] fields){
+
         GUI_Field[] gui_fields = new GUI_Field[fields.length];
+
         for (int i = 0; i < fields.length; i++){
             if (fields[i] instanceof Street){
                 gui_fields[i] = new GUI_Street();
                 gui_fields[i].setTitle(fields[i].getName());
                 gui_fields[i].setSubText(((Street) fields[i]).getSubText());
-                gui_fields[i].setBackGroundColor(((Street) fields[i]).getBgColor());
-                gui_fields[i].setForeGroundColor(((Street) fields[i]).getFgColor());
+                gui_fields[i].setBackGroundColor(fields[i].getBgColor());
+                gui_fields[i].setForeGroundColor(fields[i].getFgColor());
             }
             else if(fields[i] instanceof Brewery ){
                 gui_fields[i] = new GUI_Brewery();
@@ -88,14 +91,14 @@ public class BoardGUI {
             }
             else if(fields[i] instanceof Tax){
                 gui_fields[i] = new GUI_Tax();
-                gui_fields[i].setTitle(((Tax) fields[i]).getName());
+                gui_fields[i].setTitle(fields[i].getName());
                 gui_fields[i].setSubText(((Tax) fields[i]).getSubText());
                 gui_fields[i].setBackGroundColor(fields[i].getBgColor());
                 gui_fields[i].setForeGroundColor(fields[i].getFgColor());
             }
             else if(fields[i] instanceof Parking){
                 gui_fields[i] = new GUI_Refuge();
-                gui_fields[i].setTitle(((Parking) fields[i]).getName());
+                gui_fields[i].setTitle(fields[i].getName());
                 gui_fields[i].setSubText(((Parking) fields[i]).getSubText());
                 gui_fields[i].setBackGroundColor(fields[i].getBgColor());
                 gui_fields[i].setForeGroundColor(fields[i].getFgColor());
@@ -107,11 +110,17 @@ public class BoardGUI {
                 gui_fields[i].setForeGroundColor(fields[i].getFgColor());
             }
             else if (fields[i] instanceof Jail){
-                gui_fields[i] = new GUI_Jail();
-                gui_fields[i].setTitle(fields[i].getName());
-                gui_fields[i].setSubText(gui_fields[i].getSubText());
-                gui_fields[i].setBackGroundColor(fields[i].getBgColor());
-                gui_fields[i].setForeGroundColor(fields[i].getFgColor());
+               gui_fields[i] = new GUI_Jail();
+                gui_fields[i].setDescription(String.valueOf(((Jail)fields[i]).getJailFee()));
+                gui_fields[i].setSubText(fields[i].getName());
+
+
+
+               // gui_fields[i].setTitle(fields[i].getName());
+                //gui_fields[i].setSubText(gui_fields[i].getSubText());
+                //gui_fields[i].setBackGroundColor(fields[i].getBgColor());
+                ///gui_fields[i].setForeGroundColor(fields[i].getFgColor());
+
 
             }
 

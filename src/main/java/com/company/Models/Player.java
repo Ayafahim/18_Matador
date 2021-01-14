@@ -8,7 +8,9 @@ import java.awt.*;
 
 public class Player {
 
+
     private String name;
+
     private int playerPosition = 0;
     private int ownedBrewerys;
     private int ownedHouses;
@@ -18,6 +20,7 @@ public class Player {
     private boolean jailed;
     private int account;
     public GUI_Player gui_player;
+    private int PlayerId;
 
 
     public Player(GUI gui, Color color){
@@ -98,9 +101,40 @@ public class Player {
 
     }
 
+    public int getPlayerPosition() {
+        return playerPosition;
+    }
+
+    public void setPlayerPosition(int playerPosition) {
+        this.playerPosition = playerPosition;
+    }
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+    public int getPlayerId() {
+        return PlayerId;
+    }
+
+    public void setPlayerId(int playerId) {
+        PlayerId = playerId;
+    }
+
+
+
+
+
     public GUI_Player getGui_player() {
         return gui_player;
     }
+
+
+
+
+
 }
 
 
