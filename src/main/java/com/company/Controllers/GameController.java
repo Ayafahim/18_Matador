@@ -24,8 +24,7 @@ public class GameController {
     Die die1 = new Die(1, 6);
     Die die2 = new Die(1, 6);
     boolean isPlaying = true;
-    Ownable ownable;
-
+    Player owner;
 
     public GameController(GUI gui) {
         this.gui = gui;
@@ -204,6 +203,7 @@ public class GameController {
                 if(gui.getUserLeftButtonPressed("Vil du købe denne grund?", "Ja", "Nej")) {
                     ((Street) field).setHasOwner(true);
                     player.gui_player.setBalance(player.gui_player.getBalance()-((Street) field).getPrice());
+                    player = owner;
                 }
                 else {
                     ((Street) field).setHasOwner(false);
