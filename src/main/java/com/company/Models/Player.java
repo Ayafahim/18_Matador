@@ -42,7 +42,7 @@ public class Player {
         this.account = account;
     }
 
-    public void setOwnedBrewerys(int ownedBrewerys) {
+    public void setOwnedBrewerys() {
         this.ownedBrewerys += 1;
     }
 
@@ -54,7 +54,7 @@ public class Player {
         return ownedFleets;
     }
 
-    public void setOwnedFleets(int ownedFleets) {
+    public void setOwnedFleets() {
         this.ownedFleets += 1;
     }
 
@@ -63,16 +63,16 @@ public class Player {
         return ownedHotels;
     }
 
-    public void setOwnedHotels(int ownedHotels) {
-        this.ownedHotels = ownedHotels;
+    public void setOwnedHotels() {
+        this.ownedHotels += 1;
     }
 
     public int getOwnedStreets() {
         return ownedStreets;
     }
 
-    public void setOwnedStreets(int ownedStreets) {
-        this.ownedStreets = ownedStreets;
+    public void setOwnedStreets() {
+        this.ownedStreets += 1;
     }
 
     public boolean isJailed() {
@@ -87,19 +87,8 @@ public class Player {
         return ownedHouses;
     }
 
-    public void setOwnedHouses(int ownedHouses) {
+    public void setOwnedHouses() {
         this.ownedHouses = ownedHouses;
-    }
-
-    public void payRent(int rent, Player owner){
-        if (account > rent){
-            owner.setAccount(account+rent);
-            setAccount(account-rent);
-        }
-        else{
-            System.out.println("hhdhd");
-        }
-
     }
 
     public GUI_Player getGui_player() {

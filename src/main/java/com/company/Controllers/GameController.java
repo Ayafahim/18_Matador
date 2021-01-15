@@ -2,7 +2,9 @@ package com.company.Controllers;
 
 import com.company.Main;
 import com.company.Models.Die;
+import com.company.Models.Fields.Brewery;
 import com.company.Models.Fields.Field;
+import com.company.Models.Fields.Fleet;
 import com.company.Models.Fields.Street;
 import com.company.Models.Player;
 import com.company.Ownable;
@@ -75,15 +77,11 @@ public class GameController {
                 switch (turn) {
                     case 1:
                         movePlayer(player[0]);
-                       // buyProperty(player[0]);
                         turn = 2;
-                        System.out.println(turn);
                         break;
                     case 2:
                         turn = 1;
                         movePlayer(player[1]);
-                       // buyProperty(player[1]);
-                        System.out.println(turn);
                         break;
 
                 }
@@ -91,76 +89,100 @@ public class GameController {
 
         }
         if (player.length == 3) {
-            switch (turn) {
-                case 1:
-                    turn = 2;
-
-                    break;
-                case 2:
-                    turn = 3;
-                    break;
-                case 3:
-                    turn = 1;
-
+            while (true) {
+                switch (turn) {
+                    case 1:
+                        movePlayer(player[0]);
+                        turn = 2;
+                        break;
+                    case 2:
+                        movePlayer(player[1]);
+                        turn = 3;
+                        break;
+                    case 3:
+                        movePlayer(player[2]);
+                        turn = 1;
+                }
             }
         }
         if (player.length == 4) {
-            switch (turn) {
-                case 1:
-                    turn = 2;
-                    break;
-                case 2:
-                    turn = 3;
-                    break;
-                case 3:
-                    turn = 4;
-                    break;
-                case 4:
-                    turn = 1;
-                    break;
+            while (true) {
+                switch (turn) {
+                    case 1:
+                        turn = 2;
+                        movePlayer(player[0]);
+                        break;
+                    case 2:
+                        turn = 3;
+                        movePlayer(player[1]);
+                        break;
+                    case 3:
+                        turn = 4;
+                        movePlayer(player[2]);
+                        break;
+                    case 4:
+                        turn = 1;
+                        movePlayer(player[3]);
+                        break;
+                }
             }
 
         }
         if (player.length == 5) {
-            switch (turn) {
-                case 1:
-                    turn = 2;
-                    break;
-                case 2:
-                    turn = 3;
-                    break;
-                case 3:
-                    turn = 4;
-                    break;
-                case 4:
-                    turn = 5;
-                    break;
-                case 5:
-                    turn = 1;
-                    break;
+            while (true) {
+                switch (turn) {
+                    case 1:
+                        turn = 2;
+                        movePlayer(player[0]);
+                        break;
+                    case 2:
+                        turn = 3;
+                        movePlayer(player[1]);
+                        break;
+                    case 3:
+                        turn = 4;
+                        movePlayer(player[2]);
+                        break;
+                    case 4:
+                        turn = 5;
+                        movePlayer(player[3]);
+                        break;
+                    case 5:
+                        turn = 1;
+                        movePlayer(player[4]);
+                        break;
+                }
             }
 
         }
         if (player.length == 6) {
-            switch (turn) {
-                case 1:
-                    turn = 2;
-                    break;
-                case 2:
-                    turn = 3;
-                    break;
-                case 3:
-                    turn = 4;
-                    break;
-                case 4:
-                    turn = 5;
-                    break;
-                case 5:
-                    turn = 6;
-                    break;
-                case 6:
-                    turn = 1;
-                    break;
+            while (true) {
+                switch (turn) {
+                    case 1:
+                        turn = 2;
+                        movePlayer(player[0]);
+                        break;
+                    case 2:
+                        turn = 3;
+                        movePlayer(player[1]);
+                        break;
+                    case 3:
+                        turn = 4;
+                        movePlayer(player[2]);
+                        break;
+                    case 4:
+                        turn = 5;
+                        movePlayer(player[3]);
+                        break;
+                    case 5:
+                        turn = 6;
+                        movePlayer(player[4]);
+                        break;
+                    case 6:
+                        turn = 1;
+                        movePlayer(player[5]);
+                        break;
+                }
             }
 
         }
@@ -181,37 +203,112 @@ public class GameController {
                 player.playerPosition -= BoardGUI.fields.length;
             }
             gui.getFields()[player.playerPosition].setCar(player.gui_player, true);
-            landOnField(BoardGUI.fields[player.playerPosition],player);
-
+            landOnField(BoardGUI.fields[player.playerPosition], player);
 
 
         }
     }
 
-   /* public void buyProperty(Player player) {
-        if (player.playerPosition == 6) {
-            landOnField(BoardGUI.fields[],player);
-        }
-
-    }
-
-    */
 
     public void landOnField(Field field, Player player) {
         if (field instanceof Street) {
-            if (((Street) field).getOwner()== false) {
-                if(gui.getUserLeftButtonPressed("Vil du købe denne grund?", "Ja", "Nej")) {
+            if (((Street) field).getOwner() == false) {
+                if (gui.getUserLeftButtonPressed("Vil du købe denne grund?", "Ja", "Nej")) {
                     ((Street) field).setHasOwner(true);
-                    player.gui_player.setBalance(player.gui_player.getBalance()-((Street) field).getPrice());
-                    player = owner;
-                }
-                else {
+                    player.gui_player.setBalance(player.gui_player.getBalance() - ((Street) field).getPrice());
+                    owner = player;
+                    owner.setOwnedStreets();
+                } else {
                     ((Street) field).setHasOwner(false);
                 }
             } else {
                 gui.showMessage("feltet er allerede ejet.");
+                if (player != owner) {
+                    payRent(BoardGUI.fields[player.playerPosition], player);
+                } else {
+                    gui.showMessage("Du ejer allerede feltet.");
+                }
+            }
+        } else if (field instanceof Brewery) {
+            if (((Brewery) field).isHasOwner() == false) {
+                if (gui.getUserLeftButtonPressed("Vil du købe dette bryggeri?", "Ja", "Nej")) {
+                    ((Brewery) field).setHasOwner(true);
+                    player.gui_player.setBalance(player.gui_player.getBalance() - ((Brewery) field).getPrice());
+                    owner = player;
+                    owner.setOwnedBrewerys();
+                } else {
+                    ((Brewery) field).setHasOwner(false);
+                }
+            } else {
+                gui.showMessage("Bryggeriet er allerede ejet.");
+            }
+        } else if (field instanceof Fleet) {
+            if (((Fleet) field).isHasOwner() == false) {
+                if (gui.getUserLeftButtonPressed("Vil du købe denne færge?", "Ja", "Nej")) {
+                    ((Fleet) field).setHasOwner(true);
+                    player.gui_player.setBalance(player.gui_player.getBalance() - ((Fleet) field).getPrice());
+                    owner = player;
+                    owner.setOwnedFleets();
+                } else {
+                    ((Fleet) field).setHasOwner(false);
+                }
+            } else {
+                gui.showMessage("Færgen er allerede ejet.");
             }
         }
+
+    }
+
+    public void payRent(Field field, Player player) {
+        if (field instanceof Street) {
+            gui.showMessage("Du skal betale " + ((Street) field).getRent2() + "KR, til " + owner.gui_player.getName());
+            if (player.gui_player.getBalance() >= ((Street) field).getRent1()) {
+                player.gui_player.setBalance(player.gui_player.getBalance() - ((Street) field).getRent2());
+                owner.gui_player.setBalance(owner.gui_player.getBalance() + ((Street) field).getRent2());
+            } else {
+                gui.showMessage("Du har ikke nok penge til at betale ejeren.");
+            }
+
+        }
+        if (field instanceof Fleet) {
+
+            switch (owner.getOwnedFleets()) {
+                case 1:
+                    if (player.gui_player.getBalance() >= ((Fleet) field).getFleet1()) {
+                        player.gui_player.setBalance(player.gui_player.getBalance() - ((Fleet) field).getFleet1());
+                        owner.gui_player.setBalance(owner.gui_player.getBalance() + (((Fleet) field).getFleet1()));
+                    } else {
+                        gui.showMessage("Du har ikke nok penge til at betale ejeren.");
+                    }
+                    break;
+                case 2:
+                    if (player.gui_player.getBalance() >= ((Fleet) field).getFleet2()) {
+                        player.gui_player.setBalance(player.gui_player.getBalance() - ((Fleet) field).getFleet2());
+                        owner.gui_player.setBalance(owner.gui_player.getBalance() + (((Fleet) field).getFleet2()));
+                    } else {
+                        gui.showMessage("Du har ikke nok penge til at betale ejeren.");
+                    }
+                    break;
+                case 3:
+                    if (player.gui_player.getBalance() >= ((Fleet) field).getFleet3()) {
+                        player.gui_player.setBalance(player.gui_player.getBalance() - ((Fleet) field).getFleet3());
+                        owner.gui_player.setBalance(owner.gui_player.getBalance() + (((Fleet) field).getFleet3()));
+                    } else {
+                        gui.showMessage("Du har ikke nok penge til at betale ejeren.");
+                    }
+                    break;
+                case 4:
+                    if (player.gui_player.getBalance() >= ((Fleet) field).getFleet4()) {
+                        player.gui_player.setBalance(player.gui_player.getBalance() - ((Fleet) field).getFleet4());
+                        owner.gui_player.setBalance(owner.gui_player.getBalance() + (((Fleet) field).getFleet4()));
+                    } else {
+                        gui.showMessage("Du har ikke nok penge til at betale ejeren.");
+                    }
+            }
+
+
+        }
+
     }
 }
 
