@@ -1,6 +1,7 @@
 package com.company.Models;
 
 import java.util.Random;
+import java.util.Scanner;
 
 public class Die {
 
@@ -18,8 +19,9 @@ public class Die {
     }
 
     // Metode der slår med en enkelt terning
-    public void rollDice() {
+    public int rollDice() {
         diceNumber = random.nextInt((MAX - MIN + 1)) + MIN;
+        return diceNumber;
     }
 
     /* Metode der bruger en eller flere instancer af Die klassen, som ruller  med terninger via rollDice() metoden fra

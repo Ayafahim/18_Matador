@@ -9,25 +9,29 @@ import java.awt.*;
 public class Player {
 
     private String name;
-    private int playerPosition = 0;
+    public int playerPosition = 0;
     private int ownedBrewerys;
     private int ownedHouses;
     private int ownedHotels;
     private int ownedFleets;
     private int ownedStreets;
-    private boolean jailed;
+    private boolean jailed = false;
     private int account;
     public GUI_Player gui_player;
 
 
     public Player(GUI gui, Color color){
 
-       name = gui.getUserString("Skriv navn");
+       this.name = gui.getUserString("Skriv navn");
        GUI_Car car = new GUI_Car();
        car.setPrimaryColor(color);
 
        gui_player = new GUI_Player(name,30000,car);
        gui.addPlayer(gui_player);
+    }
+
+    public String getName() {
+        return name;
     }
 
     public int getAccount() {
@@ -38,7 +42,7 @@ public class Player {
         this.account = account;
     }
 
-    public void setOwnedBrewerys(int ownedBrewerys) {
+    public void setOwnedBrewerys() {
         this.ownedBrewerys += 1;
     }
 
@@ -50,7 +54,7 @@ public class Player {
         return ownedFleets;
     }
 
-    public void setOwnedFleets(int ownedFleets) {
+    public void setOwnedFleets() {
         this.ownedFleets += 1;
     }
 
@@ -59,16 +63,16 @@ public class Player {
         return ownedHotels;
     }
 
-    public void setOwnedHotels(int ownedHotels) {
-        this.ownedHotels = ownedHotels;
+    public void setOwnedHotels() {
+        this.ownedHotels += 1;
     }
 
     public int getOwnedStreets() {
         return ownedStreets;
     }
 
-    public void setOwnedStreets(int ownedStreets) {
-        this.ownedStreets = ownedStreets;
+    public void setOwnedStreets() {
+        this.ownedStreets += 1;
     }
 
     public boolean isJailed() {
@@ -83,19 +87,8 @@ public class Player {
         return ownedHouses;
     }
 
-    public void setOwnedHouses(int ownedHouses) {
+    public void setOwnedHouses() {
         this.ownedHouses = ownedHouses;
-    }
-
-    public void payRent(int rent, Player owner){
-        if (account > rent){
-            owner.setAccount(account+rent);
-            setAccount(account-rent);
-        }
-        else{
-            System.out.println("hhdhd");
-        }
-
     }
 
     public GUI_Player getGui_player() {

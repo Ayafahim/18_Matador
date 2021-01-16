@@ -1,4 +1,6 @@
-package com.company;
+package com.company.Models.Fields;
+
+import com.company.Models.Player;
 
 import java.awt.*;
 
@@ -6,13 +8,22 @@ public class Brewery extends Field {
 
     int price;
     String subText;
+    boolean hasOwner;
 
     public Brewery(String name, String subText, int price, Color bgColor, Color fgColor) {
         super(name, bgColor, fgColor);
         this.subText = subText;
         this.price = price;
+        hasOwner = false;
     }
 
+    public void setHasOwner(boolean hasOwner) {
+        this.hasOwner = hasOwner;
+    }
+
+    public boolean isHasOwner() {
+        return hasOwner;
+    }
 
     public String getSubText() {
         return subText;
