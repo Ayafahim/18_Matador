@@ -1,5 +1,8 @@
 package com.company.Models.Fields;
 
+import com.company.Controllers.GameController;
+import com.company.Models.Player;
+
 import java.awt.*;
 
 public class Fleet extends Field {
@@ -84,6 +87,8 @@ public class Fleet extends Field {
     public void setPrice(int price) {
         Price = price;
     }
+
+
 }
 
 

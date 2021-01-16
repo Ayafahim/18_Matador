@@ -26,7 +26,7 @@ public class GameController {
     Die die1 = new Die(1, 6);
     Die die2 = new Die(1, 6);
     boolean isPlaying = true;
-    Player owner;
+    public Player owner;
 
     public GameController(GUI gui) {
         this.gui = gui;
@@ -224,7 +224,7 @@ public class GameController {
             } else {
                 gui.showMessage("feltet er allerede ejet.");
                 if (player != owner) {
-                    payRent(BoardGUI.fields[player.playerPosition], player);
+                    payRentStreet(BoardGUI.fields[player.playerPosition], player);
                 } else {
                     gui.showMessage("Du ejer allerede feltet.");
                 }
@@ -255,7 +255,7 @@ public class GameController {
             } else {
                 gui.showMessage("Færgen er allerede ejet.");
                 if (player != owner) {
-                    payRent(BoardGUI.fields[player.playerPosition], player);
+                    payRentFleet(BoardGUI.fields[player.playerPosition], player);
                 } else {
                     gui.showMessage("Du ejer allerede feltet.");
                 }
@@ -264,8 +264,8 @@ public class GameController {
 
     }
 
-    //Metode som sørger for at spillerene kan betale leje
-    public void payRent(Field field, Player player) {
+    //Metode som sørger for at spillerene kan betale leje for Street
+    public void payRentStreet(Field field, Player player) {
         if (field instanceof Street) {
             gui.showMessage("Du skal betale " + ((Street) field).getRent2() + "KR, til " + owner.gui_player.getName());
             if (player.gui_player.getBalance() >= ((Street) field).getRent1()) {
@@ -276,8 +276,12 @@ public class GameController {
             }
 
         }
-        // Switch som holder øje med hvor mange færger spilleren har så lejen ændre sig
-        else if (field instanceof Fleet) {
+    }
+
+
+    //holder øje med hvor mange færger spilleren har så lejen ændre sig
+    public void payRentFleet(Field field, Player player) {
+        if (field instanceof Fleet) {
             switch (owner.getOwnedFleets()) {
                 case 1:
                     if (player.gui_player.getBalance() >= ((Fleet) field).getFleet1()) {
