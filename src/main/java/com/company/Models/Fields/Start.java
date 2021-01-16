@@ -5,6 +5,7 @@ import java.awt.*;
 public class Start extends Field {
 
     String subText;
+    // Giv 4k når over ny start field = start -> giv player 4k
     int Profit = 4000;
 
     public Start(String name, Color bgColor, Color fgColor, int Profit, String subText) {
@@ -12,19 +13,21 @@ public class Start extends Field {
         this.subText = subText;
         this.Profit = Profit;
     }
-    void setSubText (String subText) {
+
+    void setSubText(String subText) {
         this.subText = subText;
 
     }
 
-    void setProfit (int profit){
+    void setProfit(int profit) {
         this.Profit = Profit;
-
     }
-    String getSubText(){
+
+    String getSubText() {
         return subText;
     }
-    int getProfit(){
+
+    int getProfit() {
         return Profit;
     }
 
