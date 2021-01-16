@@ -26,8 +26,7 @@ public class Main {
 
         GameController game = new GameController(new GUI(BoardGUI.guiFieldsConvert(BoardGUI.fields)));
 
-        game.setUpPlayers();
-        game.calculatePlayerTurn();
+        game.game();
 
 
     }
