@@ -10,8 +10,11 @@ import java.awt.*;
 public class GameController {
 
     public Player[] player;
-    private GUI gui;
+    private static GUI gui;
     private String maxPlayers;
+    private boolean isPlaying = true;
+    private int turn = 0;
+    private int maxBalance = 0;
 
     public GameController(GUI gui) {
         this.gui = gui;
@@ -32,6 +35,9 @@ public class GameController {
     }
     */
 
+    public static GUI getGui() {
+        return gui;
+    }
 
     public void setUpPlayers() {
 
@@ -70,6 +76,129 @@ public class GameController {
             gui.getFields()[0].setCar(player[i].getGui_player(), true);
         }
 
+    }
+
+    private void playerTurnCalculate() {
+        if (player.length == 2) {
+            switch (this.turn) {
+                case 0:
+                    this.turn = 1;
+                    // playerTurn() method here
+                    break;
+                case 1:
+                    this.turn = 0;
+                    // playerTurn() method here
+                    break;
+            }
+        } else if (player.length == 3) {
+            switch (this.turn) {
+                case 0:
+                    this.turn = 1;
+                    // playerTurn() method here
+                    break;
+                case 1:
+                    this.turn = 2;
+                    // playerTurn() method here
+                    break;
+                case 2:
+                    this.turn = 0;
+                    // playerTurn() method here
+                    break;
+            }
+        } else if (player.length == 4) {
+            switch (this.turn) {
+                case 0:
+                    this.turn = 1;
+                    // playerTurn() method here
+                    break;
+                case 1:
+                    this.turn = 2;
+                    // playerTurn() method here
+                    break;
+                case 2:
+                    this.turn = 3;
+                    // playerTurn() method here
+                    break;
+                case 3:
+                    this.turn = 0;
+                    // playerTurn() method here
+                    break;
+            }
+        } else if (player.length == 5) {
+            switch (this.turn) {
+                case 0:
+                    this.turn = 1;
+                    // playerTurn() method here
+                    break;
+                case 1:
+                    this.turn = 2;
+                    // playerTurn() method here
+                    break;
+                case 2:
+                    this.turn = 3;
+                    // playerTurn() method here
+                    break;
+                case 3:
+                    this.turn = 4;
+                    // playerTurn() method here
+                    break;
+                case 4:
+                    this.turn = 0;
+                    // playerTurn() method here
+                    break;
+            }
+        } else if (player.length == 6) {
+            switch (this.turn) {
+                case 0:
+                    this.turn = 1;
+                    // playerTurn() method here
+                    break;
+                case 1:
+                    this.turn = 2;
+                    // playerTurn() method here
+                    break;
+                case 2:
+                    this.turn = 3;
+                    // playerTurn() method here
+                    break;
+                case 3:
+                    this.turn = 4;
+                    // playerTurn() method here
+                    break;
+                case 4:
+                    this.turn = 5;
+                    // playerTurn() method here
+                    break;
+                case 5:
+                    this.turn = 0;
+                    // playerTurn() method here
+                    break;
+            }
+        }
+    }
+
+    private void playerTurn(Player player) {
+
+    }
+
+    public void game() {
+        setUpPlayers();
+        while (isPlaying) {
+            this.playerTurnCalculate();
+            for(int i = 0; i < player.length; i++) {
+                if(player[i].gui_player.getBalance() <= 0) {
+                    gui.showMessage(player[i].gui_player.getName() + " har tabt...");
+
+                    if(player[i].gui_player.getBalance() > player[maxBalance].gui_player.getBalance()) {
+                        maxBalance = i;
+                    }
+                    gui.showMessage(player[maxBalance].gui_player.getName() + " har vundet!!!!");
+                    this.isPlaying = false;
+                    gui.close();
+                }
+
+            }
+        }
     }
 
 }
