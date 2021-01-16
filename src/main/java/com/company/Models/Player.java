@@ -5,7 +5,6 @@ import gui_fields.GUI_Player;
 import gui_main.GUI;
 
 import java.awt.*;
-import java.util.ArrayList;
 
 public class Player {
 
@@ -17,6 +16,12 @@ public class Player {
     private int ownedFleets;
     private int ownedStreets;
     private int ownedRed;
+    private int ownedOrange;
+    private int ownedMagenta;
+    private int ownedYellow;
+    private int ownedWhite;
+    private int ownedGrey;
+    private int OwnedGreen;
 
     private boolean jailed = false;
     private int account;
@@ -86,6 +91,55 @@ public class Player {
     public void setOwnedRed() {
         this.ownedRed += 1;
     }
+
+    public int getOwnedOrange() {
+        return ownedOrange;
+    }
+
+    public void setOwnedOrange() {
+        this.ownedOrange += 1;
+    }
+
+    public int getOwnedMagenta() {
+        return ownedMagenta;
+    }
+
+    public void setOwnedMagenta() {
+        this.ownedMagenta += 1;
+    }
+
+    public int getOwnedYellow() {
+        return ownedYellow;
+    }
+
+    public void setOwnedYellow() {
+        this.ownedYellow += 1;
+    }
+
+    public int getOwnedWhite() {
+        return ownedWhite;
+    }
+
+    public void setOwnedWhite() {
+        this.ownedWhite += 1;
+    }
+
+    public int getOwnedGrey() {
+        return ownedGrey;
+    }
+
+    public void setOwnedGrey() {
+        this.ownedGrey += 1;
+    }
+
+    public int getOwnedGreen() {
+        return OwnedGreen;
+    }
+
+    public void setOwnedGreen() {
+        OwnedGreen += 1;
+    }
+
 
     public boolean isJailed() {
         return jailed;
