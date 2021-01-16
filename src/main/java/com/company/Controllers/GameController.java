@@ -267,10 +267,10 @@ public class GameController {
     //Metode som sørger for at spillerene kan betale leje for Street
     public void payRentStreet(Field field, Player player) {
         if (field instanceof Street) {
-            gui.showMessage("Du skal betale " + ((Street) field).getRent2() + "KR, til " + owner.gui_player.getName());
+            gui.showMessage("Du skal betale " + ((Street) field).getRent1() + "KR, til " + owner.gui_player.getName());
             if (player.gui_player.getBalance() >= ((Street) field).getRent1()) {
-                player.gui_player.setBalance(player.gui_player.getBalance() - ((Street) field).getRent2());
-                owner.gui_player.setBalance(owner.gui_player.getBalance() + ((Street) field).getRent2());
+                player.gui_player.setBalance(player.gui_player.getBalance() - ((Street) field).getRent1());
+                owner.gui_player.setBalance(owner.gui_player.getBalance() + ((Street) field).getRent1());
             } else {
                 gui.showMessage("Du har ikke nok penge til at betale ejeren.");
             }

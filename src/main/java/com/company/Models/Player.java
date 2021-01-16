@@ -15,7 +15,7 @@ public class Player {
     private int ownedHotels;
     private int ownedFleets;
     private int ownedStreets;
-    private boolean jailed;
+    private boolean jailed = false;
     private int account;
     public GUI_Player gui_player;
 

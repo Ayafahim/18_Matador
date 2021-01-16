@@ -14,13 +14,13 @@ public class BoardGUI {
                 new Street("Rødovrevej","1.200KR",1200, Color.blue,Color.BLACK,50,250,750,2250,4000,6000),
                 new Chance("Prøv lykken",Color.BLACK,Color.GREEN),
                 new Street("Hvidovrevej","1.200KR",1200,Color.blue,Color.BLACK,50,250,750,2250,4000,6000),
-                new Tax("Betal skat",Color.cyan,Color.BLACK,4000,"4000KR"),
+                new Tax("Skat",Color.cyan,Color.BLACK,4000,"Betal 4000KR"),
                 new Fleet("Scandilines","Færge",4000,Color.BLUE,Color.BLACK),
                 new Street("Rodskildevej","2.000KR",2000,Color.ORANGE,Color.BLACK,100,600,1800,5400,8000,11000),
                 new Chance("Prøv lykken",Color.BLACK,Color.GREEN),
                 new Street("Valby Langgade","2.000KR",2000,Color.ORANGE,Color.BLACK,100,600,1800,5400,8000,11000),
                 new Street("Allégade","2.400KR",2400,Color.ORANGE,Color.BLACK,150,800,2000,6000,9000,12000),
-                new Jail("På besøg", Color.BLACK,Color.WHITE, "På besøg", 0),
+                new Jail("Fængsel", Color.BLACK,Color.WHITE, "På besøg", 0),
                 new Street("Frederiksberg Allé","2.800KR",2800,Color.cyan,Color.BLACK,200,1000,3000,9000,12500,15000),
                 new Brewery("Turborg Squash", "3.000KR",3000, Color.CYAN, Color.BLACK),
                 new Street("Bülowsvej","2.800KR",2800,Color.cyan,Color.BLACK,200,1000,3000,9000,12500,15000),
@@ -40,7 +40,7 @@ public class BoardGUI {
                 new Street("Kgs.Nytorv","5.200KR",5200,Color.white,Color.BLACK,450,2200,6600,16000,19500,23000),
                 new Brewery("Coca cola","3.000KR",3000,Color.RED,Color.BLACK),
                 new Street("Østergade","5.600KR",5600,Color.white,Color.BLACK,500,2400,7200,17000,20500,24000),
-                new Jail("De fængsles",Color.black,Color.white,"De fængsles", 1000),
+                new Jail("Fængsel",Color.gray,Color.black,"De fængsles", 1000),
                 new Street("Amagertorv","6.000KR",6000,Color.YELLOW,Color.BLACK,550,2600,7800,18000,22000,25000),
                 new Street("Vimmelskattet","6.000KR",6000,Color.YELLOW,Color.BLACK,550,2600,7800,18000,22000,25000),
                 new Chance("Prøv lykken",Color.BLACK,Color.GREEN),
@@ -48,7 +48,7 @@ public class BoardGUI {
                 new Fleet("Scandlines","4.000KR",4000,Color.BLUE,Color.BLACK),
                 new Chance("Prøv lykken",Color.BLACK,Color.GREEN),
                 new Street("Fredriksberggade","7000KR",7000,Color.MAGENTA,Color.BLACK,700,3500,10000,22000,26000,30000),
-                new Tax("Ekstra ordinær Statskat",Color.CYAN,Color.BLACK,2000,"2000KR"),
+                new Tax("Ekstra ordinær Statskat",Color.CYAN,Color.BLACK,2000,"Betal 2000KR"),
                 new Street("Rådhuspladsen","8.000KR",8000,Color.MAGENTA,Color.BLACK,1000,4000,12000,28000,34000,40000),
         };
 
@@ -105,7 +105,7 @@ public class BoardGUI {
             else if (fields[i] instanceof Jail){
                 gui_fields[i] = new GUI_Jail();
                 gui_fields[i].setTitle(fields[i].getName());
-                gui_fields[i].setSubText(gui_fields[i].getSubText());
+                gui_fields[i].setSubText(((Jail) fields[i]).getSubText());
                 gui_fields[i].setBackGroundColor(fields[i].getBgColor());
                 gui_fields[i].setForeGroundColor(fields[i].getFgColor());
             }
