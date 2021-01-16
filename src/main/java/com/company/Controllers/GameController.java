@@ -18,6 +18,7 @@ public class GameController {
     public GUI gui;
     private String maxPlayers;
     private int turn = 1;
+    private int maxBalance = 0;
     Die die1 = new Die(1, 6);
     Die die2 = new Die(1, 6);
     boolean isPlaying = true;
@@ -72,11 +73,13 @@ public class GameController {
                 switch (turn) {
                     case 1:
                         movePlayer(player[0]);
+                        checkBalance();
                         turn = 2;
                         break;
                     case 2:
                         turn = 1;
                         movePlayer(player[1]);
+                        checkBalance();
                         break;
 
                 }
@@ -88,14 +91,17 @@ public class GameController {
                 switch (turn) {
                     case 1:
                         movePlayer(player[0]);
+                        checkBalance();
                         turn = 2;
                         break;
                     case 2:
                         movePlayer(player[1]);
+                        checkBalance();
                         turn = 3;
                         break;
                     case 3:
                         movePlayer(player[2]);
+                        checkBalance();
                         turn = 1;
                 }
             }
@@ -106,18 +112,22 @@ public class GameController {
                     case 1:
                         turn = 2;
                         movePlayer(player[0]);
+                        checkBalance();
                         break;
                     case 2:
                         turn = 3;
                         movePlayer(player[1]);
+                        checkBalance();
                         break;
                     case 3:
                         turn = 4;
                         movePlayer(player[2]);
+                        checkBalance();
                         break;
                     case 4:
                         turn = 1;
                         movePlayer(player[3]);
+                        checkBalance();
                         break;
                 }
             }
@@ -129,22 +139,27 @@ public class GameController {
                     case 1:
                         turn = 2;
                         movePlayer(player[0]);
+                        checkBalance();
                         break;
                     case 2:
                         turn = 3;
                         movePlayer(player[1]);
+                        checkBalance();
                         break;
                     case 3:
                         turn = 4;
                         movePlayer(player[2]);
+                        checkBalance();
                         break;
                     case 4:
                         turn = 5;
                         movePlayer(player[3]);
+                        checkBalance();
                         break;
                     case 5:
                         turn = 1;
                         movePlayer(player[4]);
+                        checkBalance();
                         break;
                 }
             }
@@ -156,26 +171,32 @@ public class GameController {
                     case 1:
                         turn = 2;
                         movePlayer(player[0]);
+                        checkBalance();
                         break;
                     case 2:
                         turn = 3;
                         movePlayer(player[1]);
+                        checkBalance();
                         break;
                     case 3:
                         turn = 4;
                         movePlayer(player[2]);
+                        checkBalance();
                         break;
                     case 4:
                         turn = 5;
                         movePlayer(player[3]);
+                        checkBalance();
                         break;
                     case 5:
                         turn = 6;
                         movePlayer(player[4]);
+                        checkBalance();
                         break;
                     case 6:
                         turn = 1;
                         movePlayer(player[5]);
+                        checkBalance();
                         break;
                 }
             }
@@ -330,6 +351,42 @@ public class GameController {
 
         }
 
+    }
+
+    private void checkBalance() {
+        for(int i = 0; i < player.length; i++) {
+            if(player[i].gui_player.getBalance() <= 0) {
+                gui.showMessage(player[i].gui_player.getName() + " har tabt...");
+
+                findWinner();
+
+                this.isPlaying = false;
+                gui.close();
+            }
+
+        }
+    }
+
+    private void findWinner() {
+        int i;
+
+        int max = player[0].gui_player.getBalance();
+        String name = player[0].gui_player.getName();
+
+        for (i = 1; i < player.length; i++) {
+            if(player[i].gui_player.getBalance() > max) {
+                max = player[i].gui_player.getBalance();
+                name = player[i].gui_player.getName();
+            }
+        }
+        gui.showMessage(name + " har vundet!!!");
+    }
+
+    public void game() {
+        setUpPlayers();
+        while (isPlaying) {
+            this.calculatePlayerTurn();
+        }
     }
 }
 
