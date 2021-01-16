@@ -1,9 +1,5 @@
 package com.company.Models.Fields;
 
-import com.company.Models.Player;
-import gui_fields.GUI_Field;
-import gui_main.GUI;
-
 import java.awt.*;
 
 public abstract class Field {
@@ -12,7 +8,7 @@ public abstract class Field {
     Color bgColor, fgColor;
 
 
-    public Field(String name, Color bgColor, Color fgColor){
+    public Field(String name, Color bgColor, Color fgColor) {
         this.name = name;
         this.bgColor = bgColor;
         this.fgColor = fgColor;
@@ -45,7 +41,7 @@ public abstract class Field {
     }
 
 
-    public Class landOnField(){
+    public Class landOnField() {
         return this.getClass();
     }
 

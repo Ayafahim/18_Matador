@@ -1,7 +1,5 @@
 package com.company.Models.Fields;
 
-//import com.company.Models.Player;
-
 import java.awt.*;
 
 public class Street extends Field {
@@ -10,7 +8,7 @@ public class Street extends Field {
     String subText;
     boolean hasOwner;
 
-    public Street(String name, String subText, int price,Color bgColor, Color fgColor, int rent1, int rent2, int rent3, int rent4, int rent5, int rent6) {
+    public Street(String name, String subText, int price, Color bgColor, Color fgColor, int rent1, int rent2, int rent3, int rent4, int rent5, int rent6) {
         super(name, bgColor, fgColor);
         this.subText = subText;
         this.price = price;
@@ -23,7 +21,7 @@ public class Street extends Field {
         hasOwner = false;
     }
 
-    public boolean getOwner(){
+    public boolean getOwner() {
         return hasOwner;
     }
 

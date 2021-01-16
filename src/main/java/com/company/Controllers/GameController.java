@@ -1,21 +1,16 @@
 package com.company.Controllers;
 
-import com.company.Main;
 import com.company.Models.Die;
 import com.company.Models.Fields.Brewery;
 import com.company.Models.Fields.Field;
 import com.company.Models.Fields.Fleet;
 import com.company.Models.Fields.Street;
 import com.company.Models.Player;
-import com.company.Ownable;
 import com.company.Views.BoardGUI;
-import gui_fields.GUI_Field;
+import gui_fields.GUI_Ownable;
 import gui_main.GUI;
 
 import java.awt.*;
-import java.util.function.ToDoubleBiFunction;
-
-import static java.lang.Thread.sleep;
 
 public class GameController {
 
@@ -205,16 +200,15 @@ public class GameController {
                         break;
                 }
             }
-
         }
     }
 
 
     public void movePlayer(Player player) {
         gui.showMessage(player.getName() + "'s tur.");
-        String slåKnap = gui.getUserSelection("Tryk på slå, eller enter for at slå terningerne", new String("Slå!"));
+        String playButton = gui.getUserSelection("Tryk på slå, eller enter for at slå terningerne", new String("Slå!"));
 
-        if (slåKnap.equals("Slå!")) {
+        if (playButton.equals("Slå!")) {
             int sum = die1.diceTurn(die1) + die2.diceTurn(die2);
             gui.setDice(die1.diceNumber, die1.diceNumber);
 
@@ -225,20 +219,30 @@ public class GameController {
             }
             gui.getFields()[player.playerPosition].setCar(player.gui_player, true);
             landOnField(BoardGUI.fields[player.playerPosition], player);
-
-
         }
     }
 
-
     public void landOnField(Field field, Player player) {
         if (field instanceof Street) {
-            if (((Street) field).getOwner() == false) {
+            if (!((Street) field).getOwner()) {
                 if (gui.getUserLeftButtonPressed("Vil du købe denne grund?", "Ja", "Nej")) {
                     ((Street) field).setHasOwner(true);
                     player.gui_player.setBalance(player.gui_player.getBalance() - ((Street) field).getPrice());
                     owner = player;
                     owner.setOwnedStreets();
+                    // Sæt border til players navn
+                    GUI_Ownable ownable = (GUI_Ownable) gui.getFields()[player.playerPosition];
+                    ownable.setBorder(owner.gui_player.getPrimaryColor());
+                    // På owner sæt hvilken farve du har købt
+                    //owner.setOwnedStreetColors(field.getBgColor());
+
+                    //lav en metode der kaldes denne funkalitet når du skal købe hus
+
+                   // for (Color color : owner.getOwnedStreetColors()) {
+
+                   // }
+
+
                 } else {
                     ((Street) field).setHasOwner(false);
                 }
@@ -251,12 +255,14 @@ public class GameController {
                 }
             }
         } else if (field instanceof Brewery) {
-            if (((Brewery) field).isHasOwner() == false) {
+            if (!((Brewery) field).isHasOwner()) {
                 if (gui.getUserLeftButtonPressed("Vil du købe dette bryggeri?", "Ja", "Nej")) {
                     ((Brewery) field).setHasOwner(true);
                     player.gui_player.setBalance(player.gui_player.getBalance() - ((Brewery) field).getPrice());
                     owner = player;
                     owner.setOwnedBrewerys();
+                    GUI_Ownable ownable = (GUI_Ownable) gui.getFields()[player.playerPosition];
+                    ownable.setBorder(owner.gui_player.getPrimaryColor());
                 } else {
                     ((Brewery) field).setHasOwner(false);
                 }
@@ -270,6 +276,8 @@ public class GameController {
                     player.gui_player.setBalance(player.gui_player.getBalance() - ((Fleet) field).getPrice());
                     owner = player;
                     owner.setOwnedFleets();
+                    GUI_Ownable ownable = (GUI_Ownable) gui.getFields()[player.playerPosition];
+                    ownable.setBorder(owner.gui_player.getPrimaryColor());
                 } else {
                     ((Fleet) field).setHasOwner(false);
                 }
@@ -298,7 +306,6 @@ public class GameController {
 
         }
     }
-
 
     //holder øje med hvor mange færger spilleren har så lejen ændre sig
     public void payRentFleet(Field field, Player player) {
