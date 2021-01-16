@@ -254,11 +254,17 @@ public class GameController {
                 }
             } else {
                 gui.showMessage("Færgen er allerede ejet.");
+                if (player != owner) {
+                    payRent(BoardGUI.fields[player.playerPosition], player);
+                } else {
+                    gui.showMessage("Du ejer allerede feltet.");
+                }
             }
         }
 
     }
 
+    //Metode som sørger for at spillerene kan betale leje
     public void payRent(Field field, Player player) {
         if (field instanceof Street) {
             gui.showMessage("Du skal betale " + ((Street) field).getRent2() + "KR, til " + owner.gui_player.getName());
@@ -270,11 +276,12 @@ public class GameController {
             }
 
         }
-        if (field instanceof Fleet) {
-
+        // Switch som holder øje med hvor mange færger spilleren har så lejen ændre sig
+        else if (field instanceof Fleet) {
             switch (owner.getOwnedFleets()) {
                 case 1:
                     if (player.gui_player.getBalance() >= ((Fleet) field).getFleet1()) {
+                        gui.showMessage("Du skal betale " + ((Fleet) field).getFleet1() + "KR, til " + owner.gui_player.getName() + ". Da Spilleren kun ejer 1 færge.");
                         player.gui_player.setBalance(player.gui_player.getBalance() - ((Fleet) field).getFleet1());
                         owner.gui_player.setBalance(owner.gui_player.getBalance() + (((Fleet) field).getFleet1()));
                     } else {
@@ -283,6 +290,7 @@ public class GameController {
                     break;
                 case 2:
                     if (player.gui_player.getBalance() >= ((Fleet) field).getFleet2()) {
+                        gui.showMessage("Du skal betale " + ((Fleet) field).getFleet2() + "KR, til " + owner.gui_player.getName() + ". Da Spilleren ejer 2 færger.");
                         player.gui_player.setBalance(player.gui_player.getBalance() - ((Fleet) field).getFleet2());
                         owner.gui_player.setBalance(owner.gui_player.getBalance() + (((Fleet) field).getFleet2()));
                     } else {
@@ -291,6 +299,7 @@ public class GameController {
                     break;
                 case 3:
                     if (player.gui_player.getBalance() >= ((Fleet) field).getFleet3()) {
+                        gui.showMessage("Du skal betale " + ((Fleet) field).getFleet3() + "KR, til " + owner.gui_player.getName() + ". Da Spilleren ejer 3 færger.");
                         player.gui_player.setBalance(player.gui_player.getBalance() - ((Fleet) field).getFleet3());
                         owner.gui_player.setBalance(owner.gui_player.getBalance() + (((Fleet) field).getFleet3()));
                     } else {
@@ -299,6 +308,7 @@ public class GameController {
                     break;
                 case 4:
                     if (player.gui_player.getBalance() >= ((Fleet) field).getFleet4()) {
+                        gui.showMessage("Du skal betale " + ((Fleet) field).getFleet4() + "KR, til " + owner.gui_player.getName() + ". Da Spilleren ejer 4 færger.");
                         player.gui_player.setBalance(player.gui_player.getBalance() - ((Fleet) field).getFleet4());
                         owner.gui_player.setBalance(owner.gui_player.getBalance() + (((Fleet) field).getFleet4()));
                     } else {
