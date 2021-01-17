@@ -301,6 +301,8 @@ public class GameController {
                     lotteryCard(player);
                 case 3:
                     goToJail(player);
+                case 4:
+                    stockCard(player);
             }
         }
     }
@@ -389,7 +391,7 @@ public class GameController {
         gui.getFields()[player.playerPosition].setCar(player.gui_player, false);
         player.playerPosition = 10;
         gui.getFields()[player.playerPosition].setCar(player.gui_player, true);
-        player.gui_player.setBalance((player.gui_player.getBalance() - 3));
+        player.gui_player.setBalance((player.gui_player.getBalance() - 1000));
         gui.displayChanceCard();
     }
 
@@ -402,6 +404,12 @@ public class GameController {
     private void lotteryCard(Player player) {
         gui.displayChanceCard("CHANCEKORT: Du har vundet klasselotteriet, du modtager derfor " + 500 + "KR");
         player.gui_player.setBalance(player.gui_player.getBalance() + 500);
+        gui.displayChanceCard();
+    }
+
+    private void stockCard(Player player) {
+        gui.displayChanceCard("CHANCEKORT: Du har modtaget aktieudbytte, du modtager derfor " + 1000 + "KR");
+        player.gui_player.setBalance(player.gui_player.getBalance() + 1000);
         gui.displayChanceCard();
     }
 
