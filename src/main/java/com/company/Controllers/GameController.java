@@ -303,6 +303,10 @@ public class GameController {
                     goToJail(player);
                 case 4:
                     stockCard(player);
+                case 5:
+                    parkingTicket(player);
+                case 6:
+                    carTires(player);
             }
         }
     }
@@ -386,6 +390,7 @@ public class GameController {
         }
     }
 
+    //Chancekort
     private void goToJail(Player player) {
         gui.displayChanceCard("CHANCEKORT: Du er blevet taget for at køre for hurtigt. Du fængsles, og mister 1000KR. Du modtager ikke 4000KR for at passere START.");
         gui.getFields()[player.playerPosition].setCar(player.gui_player, false);
@@ -410,6 +415,18 @@ public class GameController {
     private void stockCard(Player player) {
         gui.displayChanceCard("CHANCEKORT: Du har modtaget aktieudbytte, du modtager derfor " + 1000 + "KR");
         player.gui_player.setBalance(player.gui_player.getBalance() + 1000);
+        gui.displayChanceCard();
+    }
+
+    private void parkingTicket(Player player) {
+        gui.displayChanceCard("CHANCEKORT: Du har fået en parkeringsbøde, betal " + 200 + "KR");
+        player.gui_player.setBalance(player.gui_player.getBalance() - 200);
+        gui.displayChanceCard();
+    }
+
+    private void carTires(Player player) {
+        gui.displayChanceCard("CHANCEKORT: Du har købt fire nye dæk til din bil, betal " + 1000 + "KR");
+        player.gui_player.setBalance(player.gui_player.getBalance() - 1000);
         gui.displayChanceCard();
     }
 
