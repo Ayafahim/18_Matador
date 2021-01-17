@@ -9,7 +9,7 @@ public class Brewery extends Field {
     int price;
     String subText;
     boolean hasOwner;
-    private int rent;
+    public int rent;
 
     public Brewery(String name, String subText, int price,int rent, Color bgColor, Color fgColor) {
         super(name, bgColor, fgColor);

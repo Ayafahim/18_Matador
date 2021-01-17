@@ -100,7 +100,7 @@ public class PropertyHelper {
                 }
                 break;
             default:
-                checkCanBuyHouse2(player);
+                checkCanBuyHouse3(player);
         }
     }
 

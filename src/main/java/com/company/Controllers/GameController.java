@@ -374,10 +374,10 @@ public class GameController {
 
     private void payRentBrewery(Field field, Player player) {
         if (field instanceof Brewery) {
-            if (player.gui_player.getBalance() >= ((Brewery) field).getRent()) {
-                gui.showMessage("Du skal betale " + ((Brewery) field).getRent() + "KR, til " + owner.gui_player.getName());
-                player.gui_player.setBalance(player.gui_player.getBalance() - ((Brewery) field).getRent());
-                owner.gui_player.setBalance(owner.gui_player.getBalance() + (((Brewery) field).getRent()));
+            if (player.gui_player.getBalance() >= 100) {
+                gui.showMessage("Du skal betale " + 100 + "KR, til " + owner.gui_player.getName());
+                player.gui_player.setBalance(player.gui_player.getBalance() - 100);
+                owner.gui_player.setBalance(owner.gui_player.getBalance() + 100);
             } else {
                 gui.showMessage("Du har ikke nok penge til at betale ejeren.");
             }
@@ -385,21 +385,24 @@ public class GameController {
     }
 
     private void goToJail(Player player) {
-        gui.displayChanceCard("CHANCEKORT: Du er blevet for at køre for hurtigt. Du fængsles, og mister 1000KR. Du modtager ikke 4000KR for at passere START.");
+        gui.displayChanceCard("CHANCEKORT: Du er blevet taget for at køre for hurtigt. Du fængsles, og mister 1000KR. Du modtager ikke 4000KR for at passere START.");
         gui.getFields()[player.playerPosition].setCar(player.gui_player, false);
         player.playerPosition = 10;
         gui.getFields()[player.playerPosition].setCar(player.gui_player, true);
         player.gui_player.setBalance((player.gui_player.getBalance() - 3));
+        gui.displayChanceCard();
     }
 
     private void payCarInsurance(Player player) {
-        gui.showMessage("Betal din bilforsikring på " + 1000 + "KR");
+        gui.displayChanceCard("CHANCEKORT: Betal din bilforsikring på " + 1000 + "KR");
         player.gui_player.setBalance(player.gui_player.getBalance() - 1000);
+        gui.displayChanceCard();
     }
 
     private void lotteryCard(Player player) {
-        gui.showMessage("Du har vundet klasselotteriet, du modtager derfor " + 500 + "KR");
+        gui.displayChanceCard("CHANCEKORT: Du har vundet klasselotteriet, du modtager derfor " + 500 + "KR");
         player.gui_player.setBalance(player.gui_player.getBalance() + 500);
+        gui.displayChanceCard();
     }
 
     private void buyHouse(Field field, Player owner) {
