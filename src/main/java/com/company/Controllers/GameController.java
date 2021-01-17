@@ -199,7 +199,7 @@ public class GameController {
 
     private void movePlayer(Player player) {
         gui.showMessage(player.getName() + "'s tur.");
-        String playButton = gui.getUserSelection("Tryk på slå, eller enter for at slå terningerne", "Slå!");
+        String playButton = gui.getUserSelection("Tryk på OK for at slå med terningerne", "Slå!");
 
         if (playButton.equals("Slå!")) {
             int sum = die1.diceTurn(die1) + die2.diceTurn(die2);
