@@ -9,12 +9,14 @@ public class Brewery extends Field {
     int price;
     String subText;
     boolean hasOwner;
+    private int rent;
 
-    public Brewery(String name, String subText, int price, Color bgColor, Color fgColor) {
+    public Brewery(String name, String subText, int price,int rent, Color bgColor, Color fgColor) {
         super(name, bgColor, fgColor);
         this.subText = subText;
         this.price = price;
         hasOwner = false;
+        rent = rent;
     }
 
     public void setHasOwner(boolean hasOwner) {
@@ -23,6 +25,14 @@ public class Brewery extends Field {
 
     public boolean isHasOwner() {
         return hasOwner;
+    }
+
+    public int getRent() {
+        return rent;
+    }
+
+    public void setRent(int rent) {
+        this.rent = rent;
     }
 
     public String getSubText() {

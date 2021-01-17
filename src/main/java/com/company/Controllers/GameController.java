@@ -1,13 +1,13 @@
 package com.company.Controllers;
 
+import com.company.Models.ChanceCard;
 import com.company.Models.Die;
-import com.company.Models.Fields.Brewery;
-import com.company.Models.Fields.Field;
-import com.company.Models.Fields.Fleet;
-import com.company.Models.Fields.Street;
+import com.company.Models.Fields.*;
 import com.company.Models.Player;
 import com.company.Views.BoardGUI;
+import com.company.helper.PropertyHelper;
 import gui_fields.GUI_Ownable;
+import gui_fields.GUI_Street;
 import gui_main.GUI;
 
 import java.awt.*;
@@ -16,25 +16,25 @@ public class GameController {
 
     public Player[] player;
     public GUI gui;
-    private String maxPlayers;
     private int turn = 1;
-    private int maxBalance = 0;
     Die die1 = new Die(1, 6);
     Die die2 = new Die(1, 6);
     boolean isPlaying = true;
     public Player owner;
+    public PropertyHelper estateAgent;
+    public ChanceCard chanceCard = new ChanceCard();
 
     public GameController(GUI gui) {
         this.gui = gui;
     }
 
-    public void setUpPlayers() {
+    private void setUpPlayers() {
 
-        maxPlayers = gui.getUserSelection("vælg antal spillere", "2", "3", "4", "5", "6");
+        String maxPlayers = gui.getUserSelection("vælg antal spillere", "2", "3", "4", "5", "6");
         player = new Player[Integer.parseInt(maxPlayers)];
         for (int i = 0; i < player.length; i++) {
             String colors = gui.getUserSelection("Vælg en farve.", "Gul", "Rød", "Grøn", "Blå", "Hvid", "Sort");
-            Color color = null;
+            Color color;
 
             switch (colors) {
                 case "Gul":
@@ -58,16 +58,13 @@ public class GameController {
                 default:
                     color = Color.CYAN;
             }
-
-
             player[i] = new Player(gui, color);
             gui.addPlayer(player[i].getGui_player());
             gui.getFields()[0].setCar(player[i].getGui_player(), true);
         }
-
     }
 
-    public void calculatePlayerTurn() {
+    private void calculatePlayerTurn() {
         if (player.length == 2) {
             while (true) {
                 switch (turn) {
@@ -84,7 +81,6 @@ public class GameController {
 
                 }
             }
-
         }
         if (player.length == 3) {
             while (true) {
@@ -131,7 +127,6 @@ public class GameController {
                         break;
                 }
             }
-
         }
         if (player.length == 5) {
             while (true) {
@@ -163,7 +158,6 @@ public class GameController {
                         break;
                 }
             }
-
         }
         if (player.length == 6) {
             while (true) {
@@ -203,10 +197,9 @@ public class GameController {
         }
     }
 
-
-    public void movePlayer(Player player) {
+    private void movePlayer(Player player) {
         gui.showMessage(player.getName() + "'s tur.");
-        String playButton = gui.getUserSelection("Tryk på slå, eller enter for at slå terningerne", new String("Slå!"));
+        String playButton = gui.getUserSelection("Tryk på slå, eller enter for at slå terningerne", "Slå!");
 
         if (playButton.equals("Slå!")) {
             int sum = die1.diceTurn(die1) + die2.diceTurn(die2);
@@ -216,13 +209,15 @@ public class GameController {
             player.playerPosition += sum;
             if (player.playerPosition >= BoardGUI.fields.length) {
                 player.playerPosition -= BoardGUI.fields.length;
+                gui.showMessage("Tillykke du modtager 4000Kr for at passere START!!");
+                player.gui_player.setBalance(player.gui_player.getBalance() + 4000);
             }
             gui.getFields()[player.playerPosition].setCar(player.gui_player, true);
             landOnField(BoardGUI.fields[player.playerPosition], player);
         }
     }
 
-    public void landOnField(Field field, Player player) {
+    private void landOnField(Field field, Player player) {
         if (field instanceof Street) {
             if (!((Street) field).getOwner()) {
                 if (gui.getUserLeftButtonPressed("Vil du købe denne grund?", "Ja", "Nej")) {
@@ -230,28 +225,22 @@ public class GameController {
                     player.gui_player.setBalance(player.gui_player.getBalance() - ((Street) field).getPrice());
                     owner = player;
                     owner.setOwnedStreets();
-                    // Sæt border til players navn
-                    GUI_Ownable ownable = (GUI_Ownable) gui.getFields()[player.playerPosition];
+                    // Caster til ownable og sætter border til ejers farve
+                    GUI_Ownable ownable = (GUI_Ownable) gui.getFields()[owner.playerPosition];
                     ownable.setBorder(owner.gui_player.getPrimaryColor());
                     // På owner sæt hvilken farve du har købt
-                    //owner.setOwnedStreetColors(field.getBgColor());
-
-                    //lav en metode der kaldes denne funkalitet når du skal købe hus
-
-                   // for (Color color : owner.getOwnedStreetColors()) {
-
-                   // }
-
-
+                    owner.setOwnedStreetColor(field.getBgColor());
                 } else {
                     ((Street) field).setHasOwner(false);
                 }
             } else {
-                gui.showMessage("feltet er allerede ejet.");
-                if (player != owner) {
+                if (owner != player) {
+                    gui.showMessage("feltet er allerede ejet.");
                     payRentStreet(BoardGUI.fields[player.playerPosition], player);
                 } else {
                     gui.showMessage("Du ejer allerede feltet.");
+                    estateAgent.checkCanBuyHouse2(owner);
+                    buyHouse(BoardGUI.fields[owner.playerPosition], owner);
                 }
             }
         } else if (field instanceof Brewery) {
@@ -260,17 +249,22 @@ public class GameController {
                     ((Brewery) field).setHasOwner(true);
                     player.gui_player.setBalance(player.gui_player.getBalance() - ((Brewery) field).getPrice());
                     owner = player;
-                    owner.setOwnedBrewerys();
-                    GUI_Ownable ownable = (GUI_Ownable) gui.getFields()[player.playerPosition];
+                    owner.setOwnedBreweries();
+                    GUI_Ownable ownable = (GUI_Ownable) gui.getFields()[owner.playerPosition];
                     ownable.setBorder(owner.gui_player.getPrimaryColor());
                 } else {
                     ((Brewery) field).setHasOwner(false);
                 }
             } else {
-                gui.showMessage("Bryggeriet er allerede ejet.");
+                if (owner != player) {
+                    gui.showMessage("Bryggeriet er allerede ejet.");
+                    payRentBrewery(BoardGUI.fields[player.playerPosition], player);
+                } else {
+                    gui.showMessage("Du ejer allerede feltet.");
+                }
             }
         } else if (field instanceof Fleet) {
-            if (((Fleet) field).isHasOwner() == false) {
+            if (!((Fleet) field).isHasOwner()) {
                 if (gui.getUserLeftButtonPressed("Vil du købe denne færge?", "Ja", "Nej")) {
                     ((Fleet) field).setHasOwner(true);
                     player.gui_player.setBalance(player.gui_player.getBalance() - ((Fleet) field).getPrice());
@@ -282,33 +276,61 @@ public class GameController {
                     ((Fleet) field).setHasOwner(false);
                 }
             } else {
-                gui.showMessage("Færgen er allerede ejet.");
                 if (player != owner) {
+                    gui.showMessage("Færgen er allerede ejet.");
                     payRentFleet(BoardGUI.fields[player.playerPosition], player);
                 } else {
                     gui.showMessage("Du ejer allerede feltet.");
                 }
             }
+        } else if (field instanceof Tax) {
+            gui.showMessage("Du skal betale " + ((Tax) field).getTaxFee() + "Kr i SKAT");
+            player.gui_player.setBalance(player.gui_player.getBalance() - ((Tax) field).getTaxFee());
+        } else if (field instanceof Jail) {
+            gui.showMessage("Du sendes i fængsel og skal betale en bøde på " + ((Jail) field).getJailFee() + "Kr");
+            player.gui_player.setBalance(player.gui_player.getBalance() - ((Jail) field).getJailFee());
+            gui.getFields()[player.playerPosition].setCar(player.gui_player, false);
+            player.playerPosition = 10;
+            gui.getFields()[player.playerPosition].setCar(player.gui_player, true);
+        } else if (field instanceof Chance) {
+            switch (chanceCard.randomCard()) {
+                case 1:
+                    payCarInsurance(player);
+                    break;
+                case 2:
+                    lotteryCard(player);
+                case 3:
+                    goToJail(player);
+            }
         }
-
     }
 
-    //Metode som sørger for at spillerene kan betale leje for Street
-    public void payRentStreet(Field field, Player player) {
+    //Metode som sørger for at spillerne kan betale leje for Street
+    private void payRentStreet(Field field, Player player) {
         if (field instanceof Street) {
-            gui.showMessage("Du skal betale " + ((Street) field).getRent1() + "KR, til " + owner.gui_player.getName());
-            if (player.gui_player.getBalance() >= ((Street) field).getRent1()) {
-                player.gui_player.setBalance(player.gui_player.getBalance() - ((Street) field).getRent1());
-                owner.gui_player.setBalance(owner.gui_player.getBalance() + ((Street) field).getRent1());
-            } else {
-                gui.showMessage("Du har ikke nok penge til at betale ejeren.");
+            if (((Street) field).getNumberOfHouses() == 0) {
+                gui.showMessage("Du skal betale " + ((Street) field).getRent1() + "KR, til " + owner.gui_player.getName());
+                if (player.gui_player.getBalance() >= ((Street) field).getRent1()) {
+                    player.gui_player.setBalance(player.gui_player.getBalance() - ((Street) field).getRent1());
+                    owner.gui_player.setBalance(owner.gui_player.getBalance() + ((Street) field).getRent1());
+                } else {
+                    gui.showMessage("Du har ikke nok penge til at betale ejeren.");
+                }
+            } else if (((Street) field).getNumberOfHouses() == 1) {
+                gui.showMessage("Du skal betale " + ((Street) field).getRent2() + "KR, til " + owner.gui_player.getName());
+                if (player.gui_player.getBalance() >= ((Street) field).getRent2()) {
+                    player.gui_player.setBalance(player.gui_player.getBalance() - ((Street) field).getRent2());
+                    owner.gui_player.setBalance(owner.gui_player.getBalance() + ((Street) field).getRent2());
+                } else {
+                    gui.showMessage("Du har ikke nok penge til at betale ejeren.");
+                }
             }
 
         }
     }
 
     //holder øje med hvor mange færger spilleren har så lejen ændre sig
-    public void payRentFleet(Field field, Player player) {
+    private void payRentFleet(Field field, Player player) {
         if (field instanceof Fleet) {
             switch (owner.getOwnedFleets()) {
                 case 1:
@@ -347,15 +369,74 @@ public class GameController {
                         gui.showMessage("Du har ikke nok penge til at betale ejeren.");
                     }
             }
-
-
         }
+    }
 
+    private void payRentBrewery(Field field, Player player) {
+        if (field instanceof Brewery) {
+            if (player.gui_player.getBalance() >= ((Brewery) field).getRent()) {
+                gui.showMessage("Du skal betale " + ((Brewery) field).getRent() + "KR, til " + owner.gui_player.getName());
+                player.gui_player.setBalance(player.gui_player.getBalance() - ((Brewery) field).getRent());
+                owner.gui_player.setBalance(owner.gui_player.getBalance() + (((Brewery) field).getRent()));
+            } else {
+                gui.showMessage("Du har ikke nok penge til at betale ejeren.");
+            }
+        }
+    }
+
+    private void goToJail(Player player) {
+        gui.displayChanceCard("CHANCEKORT: Du er blevet for at køre for hurtigt. Du fængsles, og mister 1000KR. Du modtager ikke 4000KR for at passere START.");
+        gui.getFields()[player.playerPosition].setCar(player.gui_player, false);
+        player.playerPosition = 10;
+        gui.getFields()[player.playerPosition].setCar(player.gui_player, true);
+        player.gui_player.setBalance((player.gui_player.getBalance() - 3));
+    }
+
+    private void payCarInsurance(Player player) {
+        gui.showMessage("Betal din bilforsikring på " + 1000 + "KR");
+        player.gui_player.setBalance(player.gui_player.getBalance() - 1000);
+    }
+
+    private void lotteryCard(Player player) {
+        gui.showMessage("Du har vundet klasselotteriet, du modtager derfor " + 500 + "KR");
+        player.gui_player.setBalance(player.gui_player.getBalance() + 500);
+    }
+
+    private void buyHouse(Field field, Player owner) {
+        if (field instanceof Street) {
+            if (estateAgent.isCanBuyBlueHouse()) {
+                addHouse((Street) field, owner);
+            } else if (estateAgent.isCanBuyGreenHouse()) {
+                addHouse((Street) field, owner);
+            } else if (estateAgent.isCanBuyRedHouse()) {
+                addHouse((Street) field, owner);
+            } else if (estateAgent.isCanBuyYellowHouse()) {
+                addHouse((Street) field, owner);
+            } else if (estateAgent.isCanBuyMagentaHouse()) {
+                addHouse((Street) field, owner);
+            } else if (estateAgent.isCanBuyGreyHouse()) {
+                addHouse((Street) field, owner);
+            } else if (estateAgent.isCanBuyWhiteHouse()) {
+                addHouse((Street) field, owner);
+            } else if (estateAgent.isCanBuyOrangeHouse()) {
+                addHouse((Street) field, owner);
+            }
+        }
+    }
+
+    private void addHouse(Street field, Player owner) {
+        if (gui.getUserLeftButtonPressed("Da du ejer flere grunde i samme farve, kan du bygge et hus. Vil du gerne bygge et hus?", "Ja", "Nej")) {
+            owner.gui_player.setBalance(owner.gui_player.getBalance() - field.getHousePrice());
+            owner.setOwnedHouses();
+            GUI_Street street = (GUI_Street) gui.getFields()[owner.playerPosition];
+            street.setHouses(1);
+            field.setNumberOfHouses();
+        }
     }
 
     private void checkBalance() {
-        for(int i = 0; i < player.length; i++) {
-            if(player[i].gui_player.getBalance() <= 0) {
+        for (int i = 0; i < player.length; i++) {
+            if (player[i].gui_player.getBalance() <= 0) {
                 gui.showMessage(player[i].gui_player.getName() + " har tabt...");
 
                 findWinner();
@@ -363,18 +444,16 @@ public class GameController {
                 this.isPlaying = false;
                 gui.close();
             }
-
         }
     }
 
     private void findWinner() {
         int i;
-
         int max = player[0].gui_player.getBalance();
         String name = player[0].gui_player.getName();
 
         for (i = 1; i < player.length; i++) {
-            if(player[i].gui_player.getBalance() > max) {
+            if (player[i].gui_player.getBalance() > max) {
                 max = player[i].gui_player.getBalance();
                 name = player[i].gui_player.getName();
             }
@@ -388,6 +467,7 @@ public class GameController {
             this.calculatePlayerTurn();
         }
     }
+
 }
 
 

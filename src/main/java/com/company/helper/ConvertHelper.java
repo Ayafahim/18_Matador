@@ -54,6 +54,13 @@ public class ConvertHelper {
                 gui_fields[i].setBackGroundColor(fields[i].getBgColor());
                 gui_fields[i].setForeGroundColor(fields[i].getFgColor());
             }
+            else if(fields[i] instanceof JailVisit){
+                gui_fields[i] = new GUI_Jail();
+                gui_fields[i].setTitle(fields[i].getName());
+                gui_fields[i].setSubText(((JailVisit) fields[i]).getSubText());
+                gui_fields[i].setBackGroundColor(fields[i].getBgColor());
+                gui_fields[i].setForeGroundColor(fields[i].getFgColor());
+            }
         }
         return gui_fields;
     }

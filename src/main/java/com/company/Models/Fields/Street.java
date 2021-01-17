@@ -4,11 +4,12 @@ import java.awt.*;
 
 public class Street extends Field {
 
-    int price, rent1, rent2, rent3, rent4, rent5, rent6;
+    int price, rent1, rent2, rent3, rent4, rent5, rent6,housePrice, numberOfHouses;
     String subText;
     boolean hasOwner;
 
-    public Street(String name, String subText, int price, Color bgColor, Color fgColor, int rent1, int rent2, int rent3, int rent4, int rent5, int rent6) {
+
+    public Street(String name, String subText, int price, Color bgColor, Color fgColor, int rent1, int rent2, int rent3, int rent4, int rent5, int rent6, int housePrice) {
         super(name, bgColor, fgColor);
         this.subText = subText;
         this.price = price;
@@ -18,6 +19,8 @@ public class Street extends Field {
         this.rent4 = rent4;
         this.rent5 = rent5;
         this.rent6 = rent6;
+        this.housePrice = housePrice;
+
         hasOwner = false;
     }
 
@@ -81,6 +84,21 @@ public class Street extends Field {
         return rent6;
     }
 
+    public int getHousePrice() {
+        return housePrice;
+    }
+
+    public void setHousePrice(int housePrice) {
+        this.housePrice = housePrice;
+    }
+
+    public int getNumberOfHouses() {
+        return numberOfHouses;
+    }
+
+    public void setNumberOfHouses() {
+        this.numberOfHouses += 1;
+    }
 
     @Override
     public void setName(String name) {

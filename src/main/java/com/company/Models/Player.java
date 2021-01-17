@@ -22,9 +22,8 @@ public class Player {
     private int ownedWhite;
     private int ownedGrey;
     private int OwnedGreen;
-
-    private boolean jailed = false;
-    private int account;
+    private int OwnedBlue;
+    private Color ownedStreetColor;
     public GUI_Player gui_player;
 
 
@@ -38,19 +37,18 @@ public class Player {
         gui.addPlayer(gui_player);
     }
 
+
+    public int getOwnedBlue() { return OwnedBlue; }
+
+    public void setOwnedBlue() {
+        OwnedBlue += 1;
+    }
+
     public String getName() {
         return name;
     }
 
-    public int getAccount() {
-        return account;
-    }
-
-    public void setAccount(int account) {
-        this.account = account;
-    }
-
-    public void setOwnedBrewerys() {
+    public void setOwnedBreweries() {
         this.ownedBreweries += 1;
     }
 
@@ -65,7 +63,6 @@ public class Player {
     public void setOwnedFleets() {
         this.ownedFleets += 1;
     }
-
 
     public int getOwnedHotels() {
         return ownedHotels;
@@ -83,84 +80,64 @@ public class Player {
         this.ownedStreets += 1;
     }
 
-    public int getOwnedRed() {
-        return ownedRed;
+    public int getOwnedRed() { return ownedRed; }
+
+    public void setOwnedRed() { this.ownedRed += 1; }
+
+    public int getOwnedOrange() { return ownedOrange; }
+
+    public void setOwnedOrange() { this.ownedOrange += 1; }
+
+    public int getOwnedMagenta() { return ownedMagenta; }
+
+    public void setOwnedMagenta() { this.ownedMagenta += 1; }
+
+    public int getOwnedYellow() { return ownedYellow; }
+
+    public void setOwnedYellow() { this.ownedYellow += 1; }
+
+    public int getOwnedWhite() { return ownedWhite; }
+
+    public void setOwnedWhite() { this.ownedWhite += 1; }
+
+    public int getOwnedGrey() { return ownedGrey; }
+
+    public void setOwnedGrey() { this.ownedGrey += 1; }
+
+    public int getOwnedGreen() { return OwnedGreen; }
+
+    public void setOwnedGreen() { OwnedGreen += 1; }
+
+    public int getOwnedHouses() { return ownedHouses; }
+
+    public void setOwnedHouses() { this.ownedHouses = ownedHouses; }
+
+    public GUI_Player getGui_player() { return gui_player; }
+
+    public void setOwnedStreetColor(Color ownedStreetColor) {
+        if (ownedStreetColor == Color.red) {
+            setOwnedRed();
+        } else if (ownedStreetColor == Color.ORANGE) {
+            setOwnedOrange();
+        } else if (ownedStreetColor == Color.gray) {
+            setOwnedGrey();
+        } else if (ownedStreetColor == Color.white) {
+            setOwnedWhite();
+        } else if (ownedStreetColor == Color.yellow) {
+            setOwnedYellow();
+        } else if (ownedStreetColor == Color.green) {
+            setOwnedGreen();
+        } else if (ownedStreetColor == Color.BLUE) {
+            setOwnedBlue();
+        } else if (ownedStreetColor == Color.MAGENTA) {
+            setOwnedMagenta();
+        }
+
     }
 
-    //todo lav alle for alle farver og lav regelsæt som retunere boolean hvor mange man skal have
-    public void setOwnedRed() {
-        this.ownedRed += 1;
+    public Color getOwnedStreetColor() {
+        return ownedStreetColor;
     }
-
-    public int getOwnedOrange() {
-        return ownedOrange;
-    }
-
-    public void setOwnedOrange() {
-        this.ownedOrange += 1;
-    }
-
-    public int getOwnedMagenta() {
-        return ownedMagenta;
-    }
-
-    public void setOwnedMagenta() {
-        this.ownedMagenta += 1;
-    }
-
-    public int getOwnedYellow() {
-        return ownedYellow;
-    }
-
-    public void setOwnedYellow() {
-        this.ownedYellow += 1;
-    }
-
-    public int getOwnedWhite() {
-        return ownedWhite;
-    }
-
-    public void setOwnedWhite() {
-        this.ownedWhite += 1;
-    }
-
-    public int getOwnedGrey() {
-        return ownedGrey;
-    }
-
-    public void setOwnedGrey() {
-        this.ownedGrey += 1;
-    }
-
-    public int getOwnedGreen() {
-        return OwnedGreen;
-    }
-
-    public void setOwnedGreen() {
-        OwnedGreen += 1;
-    }
-
-
-    public boolean isJailed() {
-        return jailed;
-    }
-
-    public void setJailed(boolean jailed) {
-        this.jailed = jailed;
-    }
-
-    public int getOwnedHouses() {
-        return ownedHouses;
-    }
-
-    public void setOwnedHouses() {
-        this.ownedHouses = ownedHouses;
-    }
-
-    public GUI_Player getGui_player() {
-        return gui_player;
-    }
-
 }
 
 

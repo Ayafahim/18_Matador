@@ -6,7 +6,7 @@ public class Start extends Field {
 
     String subText;
     // Giv 4k når over ny start field = start -> giv player 4k
-    int Profit = 4000;
+    int Profit;
 
     public Start(String name, Color bgColor, Color fgColor, int Profit, String subText) {
         super(name, bgColor, fgColor);
@@ -19,7 +19,7 @@ public class Start extends Field {
 
     }
 
-    void setProfit(int profit) {
+   private void setProfit(int profit) {
         this.Profit = Profit;
     }
 
@@ -27,7 +27,7 @@ public class Start extends Field {
         return subText;
     }
 
-    int getProfit() {
+   public int getProfit() {
         return Profit;
     }
 

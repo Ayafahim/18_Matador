@@ -24,6 +24,7 @@ public class Jail extends Field {
     public int getJailFee(){
         return jailFee;
     }
+
     public String getSubText(){
         return subText;
     }
