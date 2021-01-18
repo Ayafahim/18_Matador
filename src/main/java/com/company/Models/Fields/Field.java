@@ -14,9 +14,13 @@ public abstract class Field {
         this.fgColor = fgColor;
     }
 
-    public void setName(String name) { this.name = name; }
+    public void setName(String name) {
+        this.name = name;
+    }
 
-    public String getName() { return name; }
+    public String getName() {
+        return name;
+    }
 
     public Color getFgColor() {
         return fgColor;

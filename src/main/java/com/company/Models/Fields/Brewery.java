@@ -11,7 +11,7 @@ public class Brewery extends Field {
     boolean hasOwner;
     public int rent;
 
-    public Brewery(String name, String subText, int price,int rent, Color bgColor, Color fgColor) {
+    public Brewery(String name, String subText, int price, int rent, Color bgColor, Color fgColor) {
         super(name, bgColor, fgColor);
         this.subText = subText;
         this.price = price;

@@ -38,7 +38,7 @@ public class Die {
 
     // Metode der returner summen af to terninger
     public static int getSum(int dice1) {
-        return dice1 ;
+        return dice1;
 
 
     }

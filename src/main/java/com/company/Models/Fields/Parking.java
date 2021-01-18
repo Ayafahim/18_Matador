@@ -3,7 +3,7 @@ package com.company.Models.Fields;
 
 import java.awt.*;
 
-public class Parking extends Field{
+public class Parking extends Field {
 
     String subText;
 
@@ -15,9 +15,11 @@ public class Parking extends Field{
     void setsubText(String subText) {
         this.subText = subText;
     }
-    String getsubText(){
+
+    String getsubText() {
         return subText;
     }
+
     public void setSubText(String subText) {
         this.subText = subText;
     }
@@ -25,7 +27,6 @@ public class Parking extends Field{
     public String getSubText() {
         return subText;
     }
-
 
 
 }

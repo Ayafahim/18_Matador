@@ -285,10 +285,9 @@ public class GameController {
             gui.getFields()[player.playerPosition].setCar(player.gui_player, false);
             player.playerPosition = 10;
             gui.getFields()[player.playerPosition].setCar(player.gui_player, true);
-        } else if (field instanceof JailVisit){
+        } else if (field instanceof JailVisit) {
             gui.showMessage("Du er på besøg i fængslet.");
-        }
-        else if (field instanceof Chance) {
+        } else if (field instanceof Chance) {
             switch (chanceCard.randomCard()) {
                 case 1:
                     payCarInsurance(player);

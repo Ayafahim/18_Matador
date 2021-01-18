@@ -19,7 +19,7 @@ public class Start extends Field {
 
     }
 
-   private void setProfit(int profit) {
+    private void setProfit(int profit) {
         this.Profit = Profit;
     }
 
@@ -27,7 +27,7 @@ public class Start extends Field {
         return subText;
     }
 
-   public int getProfit() {
+    public int getProfit() {
         return Profit;
     }
 

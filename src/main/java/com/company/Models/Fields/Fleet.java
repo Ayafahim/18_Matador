@@ -7,7 +7,7 @@ import java.awt.*;
 
 public class Fleet extends Field {
 
-    int Price,fleet1,fleet2,fleet3,fleet4;
+    int Price, fleet1, fleet2, fleet3, fleet4;
     String subText;
     boolean hasOwner;
 
@@ -72,16 +72,6 @@ public class Fleet extends Field {
 
     public void setFleet4(int fleet4) {
         this.fleet4 = fleet4;
-    }
-
-    @Override
-    public Color getBgColor() {
-        return super.getBgColor();
-    }
-
-    @Override
-    public Color getFgColor() {
-        return super.getFgColor();
     }
 
     public void setPrice(int price) {

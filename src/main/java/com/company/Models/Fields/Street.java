@@ -9,7 +9,7 @@ public class Street extends Field {
     boolean hasOwner;
 
 
-    public Street(String name, String subText, int price, Color bgColor, Color fgColor, int rent1){
+    public Street(String name, String subText, int price, Color bgColor, Color fgColor, int rent1) {
         super(name, bgColor, fgColor);
         this.subText = subText;
         this.price = price;

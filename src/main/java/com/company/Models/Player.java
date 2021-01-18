@@ -46,7 +46,9 @@ public class Player {
         this.ownedFleets += 1;
     }
 
-    public GUI_Player getGui_player() { return gui_player; }
+    public GUI_Player getGui_player() {
+        return gui_player;
+    }
 
 
 }

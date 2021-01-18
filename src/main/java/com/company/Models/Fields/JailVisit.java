@@ -11,9 +11,11 @@ public class JailVisit extends Field {
         subText = subText;
 
     }
+
     public String getSubText() {
         return subText;
     }
+
     public void setSubText(String subText) {
         this.subText = subText;
     }

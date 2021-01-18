@@ -13,19 +13,20 @@ public class Jail extends Field {
         this.jailFee = jailFee;
     }
 
-    public void setJailFee (int jailFee){
+    public void setJailFee(int jailFee) {
         this.jailFee = jailFee;
 
     }
-    public void setSubText(String subText){
+
+    public void setSubText(String subText) {
         this.subText = subText;
     }
 
-    public int getJailFee(){
+    public int getJailFee() {
         return jailFee;
     }
 
-    public String getSubText(){
+    public String getSubText() {
         return subText;
     }
 
