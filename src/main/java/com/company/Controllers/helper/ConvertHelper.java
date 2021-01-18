@@ -1,4 +1,4 @@
-package com.company.helper;
+package com.company.Controllers.helper;
 
 import com.company.Models.Fields.*;
 import gui_fields.*;

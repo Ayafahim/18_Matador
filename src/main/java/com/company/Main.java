@@ -2,7 +2,7 @@ package com.company;
 
 import com.company.Controllers.GameController;
 import com.company.Views.BoardGUI;
-import com.company.helper.ConvertHelper;
+import com.company.Controllers.helper.ConvertHelper;
 import gui_main.GUI;
 
 public class Main {

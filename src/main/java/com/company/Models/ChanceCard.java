@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class ChanceCard {
 
-    private final int[] chanceCard = new int[]{1, 2, 3};
+    private final int[] chanceCard = new int[]{1, 2, 3, 4, 5, 6};
     Random random = new Random();
 
 
