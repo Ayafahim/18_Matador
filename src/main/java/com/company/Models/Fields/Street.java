@@ -1,13 +1,11 @@
 package com.company.Models.Fields;
 
 import java.awt.*;
-
 public class Street extends Field {
 
     int price, rent1;
     String subText;
     boolean hasOwner;
-
 
     public Street(String name, String subText, int price, Color bgColor, Color fgColor, int rent1) {
         super(name, bgColor, fgColor);
@@ -16,7 +14,6 @@ public class Street extends Field {
         this.rent1 = rent1;
         hasOwner = false;
     }
-
     public boolean getOwner() {
         return hasOwner;
     }
@@ -33,10 +30,6 @@ public class Street extends Field {
         return rent1;
     }
 
-    public void setRent1(int rent1) {
-        this.rent1 = rent1;
-    }
-
     public void setSubText(String subText) {
         this.subText = subText;
     }
@@ -44,8 +37,6 @@ public class Street extends Field {
     public String getSubText() {
         return subText;
     }
-
-
 }
 
 

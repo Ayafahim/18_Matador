@@ -14,7 +14,6 @@ public class Player {
     private int ownedFleets;
     public GUI_Player gui_player;
 
-
     public Player(GUI gui, Color color) {
 
         this.name = gui.getUserString("Skriv navn");
@@ -25,17 +24,12 @@ public class Player {
         gui.addPlayer(gui_player);
     }
 
-
     public String getName() {
         return name;
     }
 
     public void setOwnedBreweries() {
         this.ownedBreweries += 1;
-    }
-
-    public int getOwnedBreweries() {
-        return ownedBreweries;
     }
 
     public int getOwnedFleets() {
@@ -49,8 +43,6 @@ public class Player {
     public GUI_Player getGui_player() {
         return gui_player;
     }
-
-
 }
 
 

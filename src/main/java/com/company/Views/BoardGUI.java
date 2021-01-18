@@ -1,9 +1,7 @@
 package com.company.Views;
 
 import com.company.Models.Fields.*;
-
 import java.awt.*;
-
 
 public class BoardGUI {
     public static Field[] fields = {

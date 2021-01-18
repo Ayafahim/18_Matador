@@ -1,7 +1,5 @@
 package com.company.Models.Fields;
 
-//import com.company.Models.Player;
-
 import java.awt.*;
 
 public class Tax extends Field {
@@ -31,15 +29,4 @@ public class Tax extends Field {
         this.taxFee = taxFee;
     }
 
-  /*  @Override
-    public void landOnField(Player player) {
-        super.landOnField(player);
-        System.out.println("Betal " + getTaxFee() + "KR");
-    }
-
-    public void payTaxFee(){
-
-    }
-
-   */
 }
