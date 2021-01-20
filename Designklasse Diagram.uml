@@ -3,306 +3,80 @@
   <ID>JAVA</ID>
   <OriginalElement>com.company</OriginalElement>
   <nodes>
-    <node x="2005.509090909091" y="349.0">com.company.Models.Fields.Brewery</node>
-    <node x="1475.2840909090908" y="803.0">com.company.Models.ChanceCard</node>
-    <node x="1177.5340909090908" y="1068.0">com.company.Controllers.GameController</node>
-    <node x="527.9090909090908" y="294.0">com.company.Models.Fields.Fleet</node>
-    <node x="788.9090909090908" y="348.0">com.company.Models.Fields.Start</node>
-    <node x="1753.509090909091" y="371.0">com.company.Models.Fields.Jail</node>
-    <node x="1219.0340909090908" y="1702.0">com.company.Main</node>
-    <node x="790.804322638146" y="825.5">com.company.Views.BoardGUI</node>
-    <node x="1076.6757575757574" y="359.5">com.company.Models.Fields.Parking</node>
-    <node x="1332.6757575757574" y="338.0">com.company.Models.Fields.Street</node>
-    <node x="1635.2840909090908" y="825.5">com.company.Controllers.helper.ConvertHelper</node>
-    <node x="18.90909090909099" y="371.0">com.company.Models.Fields.Tax</node>
-    <node x="1068.3805474095793" y="0.0">com.company.Models.Fields.Field</node>
-    <node x="1269.2840909090908" y="747.0">com.company.Models.Player</node>
-    <node x="2302.509090909091" y="393.5">com.company.Models.Fields.Chance</node>
-    <node x="925.1590909090908" y="747.5">com.company.Models.Die</node>
-    <node x="272.90909090909076" y="382.0">com.company.Models.Fields.JailVisit</node>
+    <node x="0.0" y="1012.0">com.company.Models.Fields.Brewery</node>
+    <node x="484.0" y="1264.0">com.company.Models.ChanceCard</node>
+    <node x="0.0" y="0.0">com.company.Controllers.GameController</node>
+    <node x="1509.0" y="973.0">com.company.Models.Fields.Fleet</node>
+    <node x="902.0" y="1011.0">com.company.Models.Fields.Start</node>
+    <node x="349.0" y="1038.0">com.company.Models.Fields.Jail</node>
+    <node x="1235.0" y="1264.0">com.company.Views.BoardGUI</node>
+    <node x="1014.0" y="1264.0">com.company.Main</node>
+    <node x="2414.0" y="999.0">com.company.Models.Fields.Street</node>
+    <node x="1209.0" y="1024.5">com.company.Models.Fields.Parking</node>
+    <node x="697.0" y="1264.0">com.company.Controllers.helper.ConvertHelper</node>
+    <node x="2115.0" y="1038.0">com.company.Models.Fields.Tax</node>
+    <node x="1239.5" y="734.0">com.company.Models.Fields.Field</node>
+    <node x="0.0" y="1264.0">com.company.Models.Player</node>
+    <node x="265.0" y="1264.0">com.company.Models.Die</node>
+    <node x="645.0" y="1064.5">com.company.Models.Fields.Chance</node>
+    <node x="1816.0" y="1051.0">com.company.Models.Fields.JailVisit</node>
   </nodes>
   <notes />
   <edges>
-    <edge source="com.company.Views.BoardGUI" target="com.company.Models.Fields.JailVisit">
-      <point x="-30.545454545454504" y="-27.0" />
-      <point x="816.2588680926915" y="697.0" />
-      <point x="389.90909090909076" y="697.0" />
-      <point x="0.0" y="38.5" />
-    </edge>
-    <edge source="com.company.Views.BoardGUI" target="com.company.Models.Fields.Parking">
-      <point x="10.181818181818244" y="-27.0" />
-      <point x="856.9861408199642" y="627.0" />
-      <point x="1135.6757575757574" y="627.0" />
-      <point x="-59.0" y="61.0" />
-    </edge>
-    <edge source="com.company.Views.BoardGUI" target="com.company.Models.Fields.Tax">
-      <point x="-40.72727272727275" y="-27.0" />
-      <point x="806.0770499108733" y="707.0" />
-      <point x="135.909090909091" y="707.0" />
-      <point x="0.0" y="49.5" />
-    </edge>
-    <edge source="com.company.Controllers.GameController" target="com.company.Models.Fields.Jail">
-      <point x="81.17647058823525" y="-292.0" />
-      <point x="1373.7105614973261" y="1028.0" />
-      <point x="1946.8424242424242" y="1028.0" />
-      <point x="77.33333333333337" y="49.5" />
-    </edge>
-    <edge source="com.company.Views.BoardGUI" target="com.company.Models.Fields.Brewery">
-      <point x="40.72727272727275" y="-27.0" />
-      <point x="887.5315953654188" y="677.0" />
-      <point x="2051.6757575757574" y="677.0" />
-      <point x="-92.33333333333348" y="71.5" />
-    </edge>
-    <edge source="com.company.Controllers.GameController" target="com.company.Models.Fields.Fleet">
-      <point x="-67.64705882352945" y="-292.0" />
-      <point x="1224.8870320855613" y="1018.0" />
-      <point x="568.0757575757575" y="1018.0" />
-      <point x="-80.33333333333326" y="126.5" />
-    </edge>
-    <edge source="com.company.Views.BoardGUI" target="com.company.Models.Fields.Start">
-      <point x="0.0" y="-27.0" />
-      <point x="846.804322638146" y="727.0" />
-      <point x="849.1590909090908" y="727.0" />
-      <point x="-60.25" y="72.5" />
-    </edge>
-    <edge source="com.company.Controllers.helper.ConvertHelper" target="com.company.Models.Fields.Jail">
-      <point x="34.34999999999991" y="-27.0" />
-      <point x="1784.1340909090907" y="667.0" />
-      <point x="1869.509090909091" y="667.0" />
-      <point x="0.0" y="49.5" />
-    </edge>
     <edge source="com.company.Models.Fields.Brewery" target="com.company.Models.Fields.Field">
-      <point x="69.25" y="-71.5" />
-      <point x="2213.259090909091" y="214.0" />
-      <point x="1223.948729227761" y="214.0" />
-      <point x="63.068181818181756" y="72.0" />
-    </edge>
-    <edge source="com.company.Controllers.GameController" target="com.company.Views.BoardGUI">
-      <point x="-54.117647058823536" y="-292.0" />
-      <point x="1238.4164438502671" y="1008.0" />
-      <point x="874.804322638146" y="1008.0" />
-      <point x="28.0" y="27.0" />
+      <point x="0.0" y="-84.0" />
+      <point x="164.5" y="923.0" />
+      <point x="1251.6666666666667" y="923.0" />
+      <point x="-97.33333333333326" y="84.5" />
     </edge>
     <edge source="com.company.Models.Fields.JailVisit" target="com.company.Models.Fields.Field">
-      <point x="58.5" y="-38.5" />
-      <point x="448.40909090909076" y="214.0" />
-      <point x="1114.6305474095793" y="214.0" />
-      <point x="-46.25" y="72.0" />
-    </edge>
-    <edge source="com.company.Controllers.helper.ConvertHelper" target="com.company.Models.Fields.Street">
-      <point x="11.450000000000045" y="-27.0" />
-      <point x="1761.2340909090908" y="567.0" />
-      <point x="1554.342424242424" y="567.0" />
-      <point x="88.66666666666652" y="82.5" />
-    </edge>
-    <edge source="com.company.Controllers.GameController" target="com.company.Models.Die">
-      <point x="-40.58823529411768" y="-292.0" />
-      <point x="1251.945855614973" y="998.0" />
-      <point x="960.9090909090908" y="998.0" />
-      <point x="-35.75" y="105.0" />
-    </edge>
-    <edge source="com.company.Controllers.helper.ConvertHelper" target="com.company.Models.Fields.Start">
-      <point x="-34.350000000000136" y="-27.0" />
-      <point x="1715.4340909090906" y="587.0" />
-      <point x="969.6590909090908" y="587.0" />
-      <point x="60.25" y="72.5" />
-    </edge>
-    <edge source="com.company.Controllers.GameController" target="com.company.Models.Fields.Field">
-      <point x="-108.23529411764707" y="-292.0" />
-      <point x="1184.2987967914437" y="1048.0" />
-      <point x="0.0" y="1048.0" />
-      <point x="0.0" y="164.0" />
-      <point x="1072.5850928641248" y="164.0" />
-      <point x="-88.2954545454545" y="72.0" />
-    </edge>
-    <edge source="com.company.Views.BoardGUI" target="com.company.Models.Fields.Field">
-      <point x="-50.90909090909099" y="-27.0" />
-      <point x="795.895231729055" y="717.0" />
-      <point x="8.409090909090992" y="717.0" />
-      <point x="8.409090909090992" y="174.0" />
-      <point x="1080.9941837732158" y="174.0" />
-      <point x="-79.88636363636351" y="72.0" />
-    </edge>
-    <edge source="com.company.Main" target="com.company.Controllers.GameController">
-      <point x="-18.375" y="-27.0" />
-      <point x="1274.1590909090908" y="1672.0" />
-      <point x="1235.0340909090908" y="1672.0" />
-      <point x="-57.5" y="292.0" />
-    </edge>
-    <edge source="com.company.Controllers.GameController" target="com.company.Models.ChanceCard">
-      <point x="54.117647058823536" y="-292.0" />
-      <point x="1346.6517379679144" y="1008.0" />
-      <point x="1510.2840909090908" y="1008.0" />
-      <point x="-35.0" y="49.5" />
-    </edge>
-    <edge source="com.company.Controllers.helper.ConvertHelper" target="com.company.Models.Fields.Chance">
-      <point x="80.15000000000009" y="-27.0" />
-      <point x="1829.9340909090909" y="707.0" />
-      <point x="2401.509090909091" y="707.0" />
-      <point x="0.0" y="27.0" />
-    </edge>
-    <edge source="com.company.Controllers.helper.ConvertHelper" target="com.company.Models.Fields.Fleet">
-      <point x="-57.25" y="-27.0" />
-      <point x="1692.5340909090908" y="597.0" />
-      <point x="728.742424242424" y="597.0" />
-      <point x="80.33333333333326" y="126.5" />
-    </edge>
-    <edge source="com.company.Controllers.GameController" target="com.company.Models.Fields.Tax">
-      <point x="-94.70588235294122" y="-292.0" />
-      <point x="1197.8282085561495" y="1038.0" />
-      <point x="263.09895204416057" y="1038.0" />
-      <point x="263.09895204416057" y="727.0" />
-      <point x="57.90909090909099" y="727.0" />
-      <point x="-78.0" y="49.5" />
-    </edge>
-    <edge source="com.company.Views.BoardGUI" target="com.company.Models.Fields.Fleet">
-      <point x="-10.181818181818244" y="-27.0" />
-      <point x="836.6225044563278" y="677.0" />
-      <point x="648.4090909090908" y="677.0" />
-      <point x="0.0" y="126.5" />
-    </edge>
-    <edge source="com.company.Views.BoardGUI" target="com.company.Models.Fields.Chance">
-      <point x="50.90909090909099" y="-27.0" />
-      <point x="897.713413547237" y="697.0" />
-      <point x="2335.509090909091" y="697.0" />
-      <point x="-66.0" y="27.0" />
-    </edge>
-    <edge source="com.company.Controllers.GameController" target="com.company.Models.Fields.JailVisit">
-      <point x="-81.17647058823536" y="-292.0" />
-      <point x="1211.3576203208554" y="1028.0" />
-      <point x="395.59895204416046" y="1028.0" />
-      <point x="395.59895204416046" y="727.0" />
-      <point x="311.90909090909076" y="727.0" />
-      <point x="-78.0" y="38.5" />
+      <point x="0.0" y="-45.0" />
+      <point x="1955.5" y="943.0" />
+      <point x="1397.6666666666665" y="943.0" />
+      <point x="48.666666666666515" y="84.5" />
     </edge>
     <edge source="com.company.Models.Fields.Fleet" target="com.company.Models.Fields.Field">
-      <point x="-60.25" y="-126.5" />
-      <point x="588.1590909090908" y="234.0" />
-      <point x="1131.448729227761" y="234.0" />
-      <point x="-29.431818181818244" y="72.0" />
+      <point x="0.0" y="-123.0" />
+      <point x="1652.5" y="953.0" />
+      <point x="1373.3333333333333" y="953.0" />
+      <point x="24.333333333333258" y="84.5" />
     </edge>
     <edge source="com.company.Models.Fields.Chance" target="com.company.Models.Fields.Field">
-      <point x="49.5" y="-27.0" />
-      <point x="2451.009090909091" y="194.0" />
-      <point x="1240.7669110459428" y="194.0" />
-      <point x="79.88636363636351" y="72.0" />
-    </edge>
-    <edge source="com.company.Controllers.GameController" target="com.company.Models.Fields.Brewery">
-      <point x="94.70588235294122" y="-292.0" />
-      <point x="1387.239973262032" y="1038.0" />
-      <point x="2154.356228796504" y="1038.0" />
-      <point x="2154.356228796504" y="687.0" />
-      <point x="2236.3424242424244" y="687.0" />
-      <point x="92.3333333333336" y="71.5" />
-    </edge>
-    <edge source="com.company.Views.BoardGUI" target="com.company.Models.Fields.Jail">
-      <point x="30.545454545454504" y="-27.0" />
-      <point x="877.3497771836005" y="657.0" />
-      <point x="1792.1757575757574" y="657.0" />
-      <point x="-77.33333333333337" y="49.5" />
+      <point x="0.0" y="-31.5" />
+      <point x="763.5" y="943.0" />
+      <point x="1300.3333333333333" y="943.0" />
+      <point x="-48.66666666666674" y="84.5" />
     </edge>
     <edge source="com.company.Models.Fields.Jail" target="com.company.Models.Fields.Field">
-      <point x="-58.0" y="-49.5" />
-      <point x="1811.509090909091" y="244.0" />
-      <point x="1198.7214565004883" y="244.0" />
-      <point x="37.84090909090901" y="72.0" />
-    </edge>
-    <edge source="com.company.Controllers.helper.ConvertHelper" target="com.company.Models.Fields.Tax">
-      <point x="-103.04999999999995" y="-27.0" />
-      <point x="1646.7340909090908" y="617.0" />
-      <point x="213.909090909091" y="617.0" />
-      <point x="78.0" y="49.5" />
-    </edge>
-    <edge source="com.company.Controllers.helper.ConvertHelper" target="com.company.Models.Fields.Parking">
-      <point x="-11.450000000000045" y="-27.0" />
-      <point x="1738.3340909090907" y="577.0" />
-      <point x="1253.6757575757574" y="577.0" />
-      <point x="59.0" y="61.0" />
+      <point x="0.0" y="-58.0" />
+      <point x="487.0" y="933.0" />
+      <point x="1276.0" y="933.0" />
+      <point x="-73.0" y="84.5" />
     </edge>
     <edge source="com.company.Models.Fields.Parking" target="com.company.Models.Fields.Field">
-      <point x="59.0" y="-61.0" />
-      <point x="1253.6757575757574" y="274.0" />
-      <point x="1173.4941837732156" y="274.0" />
-      <point x="12.61363636363626" y="72.0" />
-    </edge>
-    <edge source="com.company.Main" target="com.company.Controllers.helper.ConvertHelper">
-      <point x="55.125" y="-27.0" />
-      <point x="1347.6590909090908" y="1682.0" />
-      <point x="1749.7840909090908" y="1682.0" />
-      <point x="0.0" y="27.0" />
+      <point x="0.0" y="-71.5" />
+      <point x="0.0" y="84.5" />
     </edge>
     <edge source="com.company.Models.Fields.Street" target="com.company.Models.Fields.Field">
-      <point x="-66.5" y="-82.5" />
-      <point x="1399.1757575757574" y="264.0" />
-      <point x="1181.9032746823066" y="264.0" />
-      <point x="21.022727272727252" y="72.0" />
-    </edge>
-    <edge source="com.company.Controllers.GameController" target="com.company.Models.Player">
-      <point x="0.0" y="-292.0" />
-      <point x="-69.75" y="105.5" />
-    </edge>
-    <edge source="com.company.Views.BoardGUI" target="com.company.Models.Fields.Street">
-      <point x="20.36363636363626" y="-27.0" />
-      <point x="867.1679590017823" y="637.0" />
-      <point x="1377.009090909091" y="637.0" />
-      <point x="-88.66666666666652" y="82.5" />
+      <point x="0.0" y="-97.0" />
+      <point x="2572.5" y="923.0" />
+      <point x="1446.3333333333333" y="923.0" />
+      <point x="97.33333333333326" y="84.5" />
     </edge>
     <edge source="com.company.Models.Fields.Tax" target="com.company.Models.Fields.Field">
-      <point x="58.5" y="-49.5" />
-      <point x="194.409090909091" y="194.0" />
-      <point x="1097.8123655913976" y="194.0" />
-      <point x="-63.068181818181756" y="72.0" />
-    </edge>
-    <edge source="com.company.Controllers.GameController" target="com.company.Models.Fields.Street">
-      <point x="-13.529411764705912" y="-292.0" />
-      <point x="1279.004679144385" y="978.0" />
-      <point x="1157.8228954631704" y="978.0" />
-      <point x="1157.8228954631704" y="647.0" />
-      <point x="1465.6757575757574" y="647.0" />
-      <point x="0.0" y="82.5" />
-    </edge>
-    <edge source="com.company.Main" target="com.company.Views.BoardGUI">
-      <point x="-55.125" y="-27.0" />
-      <point x="1237.4090909090908" y="1682.0" />
-      <point x="818.804322638146" y="1682.0" />
-      <point x="-28.0" y="27.0" />
+      <point x="0.0" y="-58.0" />
+      <point x="2254.5" y="933.0" />
+      <point x="1422.0" y="933.0" />
+      <point x="73.0" y="84.5" />
     </edge>
     <edge source="com.company.Models.Fields.Start" target="com.company.Models.Fields.Field">
-      <point x="-60.25" y="-72.5" />
-      <point x="849.1590909090908" y="254.0" />
-      <point x="1148.266911045943" y="254.0" />
-      <point x="-12.61363636363626" y="72.0" />
-    </edge>
-    <edge source="com.company.Controllers.helper.ConvertHelper" target="com.company.Models.Fields.Brewery">
-      <point x="57.25" y="-27.0" />
-      <point x="1807.0340909090908" y="687.0" />
-      <point x="2144.009090909091" y="687.0" />
-      <point x="0.0" y="71.5" />
-    </edge>
-    <edge source="com.company.Controllers.helper.ConvertHelper" target="com.company.Models.Fields.JailVisit">
-      <point x="-80.15000000000009" y="-27.0" />
-      <point x="1669.6340909090907" y="607.0" />
-      <point x="467.90909090909076" y="607.0" />
-      <point x="78.0" y="38.5" />
-    </edge>
-    <edge source="com.company.Controllers.helper.ConvertHelper" target="com.company.Models.Fields.Field">
-      <point x="103.04999999999995" y="-27.0" />
-      <point x="1852.8340909090907" y="727.0" />
-      <point x="2511.009090909091" y="727.0" />
-      <point x="2511.009090909091" y="184.0" />
-      <point x="1249.1760019550338" y="184.0" />
-      <point x="88.2954545454545" y="72.0" />
-    </edge>
-    <edge source="com.company.Controllers.GameController" target="com.company.Models.Fields.Chance">
-      <point x="108.23529411764707" y="-292.0" />
-      <point x="1400.7693850267378" y="1048.0" />
-      <point x="2275.439562129837" y="1048.0" />
-      <point x="2275.439562129837" y="717.0" />
-      <point x="2467.509090909091" y="717.0" />
-      <point x="66.0" y="27.0" />
+      <point x="0.0" y="-85.0" />
+      <point x="1045.5" y="953.0" />
+      <point x="1324.6666666666667" y="953.0" />
+      <point x="-24.333333333333258" y="84.5" />
     </edge>
   </edges>
-  <settings layout="Hierarchic Group" zoom="0.4188538205980067" x="1951.5886858189347" y="1673.541045545419" />
+  <settings layout="Hierarchic Group" zoom="0.3602240896358545" x="1240.395505130868" y="865.3089358785894" />
   <SelectedNodes>
     <node>com.company.Models.Die</node>
   </SelectedNodes>

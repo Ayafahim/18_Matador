@@ -4,7 +4,7 @@ import com.company.Models.Fields.*;
 import java.awt.*;
 
 public class BoardGUI {
-    public static Field[] fields = {
+    public static Field[] fields = {// statik metode  arrays som er nedarvet fra fields klassen
             new Start("START", Color.red, Color.BLACK, 4000, "Modtag kr. 4000"),
             new Street("Rødovrevej", "1.200KR", 1200, Color.blue, Color.BLACK, 50),
             new Chance("Prøv lykken", Color.BLACK, Color.GREEN),

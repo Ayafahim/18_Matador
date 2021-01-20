@@ -62,7 +62,7 @@ public class GameController {
         }
     }
 
-    private void calculatePlayerTurn() {
+    private void calculatePlayerTurn() {// kigger hvis tur det er
         if (player.length == 2) {
             while (true) {
                 switch (turn) {
@@ -195,22 +195,22 @@ public class GameController {
         }
     }
 
-    private void movePlayer(Player player) {
+    private void movePlayer(Player player) {// den tar parameteren spiller
         gui.showMessage(player.getName() + "'s tur.");
         String playButton = gui.getUserSelection("Tryk på OK for at slå med terningerne", "Slå!");
 
         if (playButton.equals("Slå!")) {
             int sum = die1.diceTurn(die1) + die2.diceTurn(die2);
-            gui.setDice(die1.diceNumber, die1.diceNumber);
+            gui.setDice(die1.diceNumber, die1.diceNumber);// Der er en fejl der skulle have stået dice 2
 
-            gui.getFields()[player.playerPosition].setCar(player.gui_player, false);
+            gui.getFields()[player.playerPosition].setCar(player.gui_player, false);// bilen bliver "fjernet"
             player.playerPosition += sum;
             if (player.playerPosition >= BoardGUI.fields.length) {
                 player.playerPosition -= BoardGUI.fields.length;
                 gui.showMessage("Tillykke du modtager 4000Kr for at passere START!!");
                 player.gui_player.setBalance(player.gui_player.getBalance() + 4000);
             }
-            gui.getFields()[player.playerPosition].setCar(player.gui_player, true);
+            gui.getFields()[player.playerPosition].setCar(player.gui_player, true);// man kan se bilen
             landOnField(BoardGUI.fields[player.playerPosition], player);
         }
     }
@@ -220,8 +220,8 @@ public class GameController {
             if (!((Street) field).getOwner()) {
                 if (gui.getUserLeftButtonPressed("Vil du købe denne grund?", "Ja", "Nej")) {
                     ((Street) field).setHasOwner(true);
-                    player.gui_player.setBalance(player.gui_player.getBalance() - ((Street) field).getPrice());
-                    owner = player;
+                    player.gui_player.setBalance(player.gui_player.getBalance() - ((Street) field).getPrice());// Du køber grunden
+                    owner = player;// Her sætter man spilleren til at være eje af feltet
                     // Caster til ownable og sætter border til ejers farve
                     GUI_Ownable ownable = (GUI_Ownable) gui.getFields()[owner.playerPosition];
                     ownable.setBorder(owner.gui_player.getPrimaryColor());

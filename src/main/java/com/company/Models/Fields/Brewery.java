@@ -3,14 +3,14 @@ package com.company.Models.Fields;
 import java.awt.*;
 
 public class Brewery extends Field {
-
+    //tilføjer variabler
     int price;
     String subText;
     boolean hasOwner;
     public int rent;
 
     public Brewery(String name, String subText, int price, int rent, Color bgColor, Color fgColor) {
-        super(name, bgColor, fgColor);
+        super(name, bgColor, fgColor);// nedarvet fra fields
         this.subText = subText;
         this.price = price;
         hasOwner = false;

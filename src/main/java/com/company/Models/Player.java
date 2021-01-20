@@ -10,7 +10,7 @@ public class Player {
 
     private String name;
     public int playerPosition = 0;
-    private int ownedBreweries;
+    private int ownedBreweries;// gad ikke virker, så lavet det i game metoden istedet
     private int ownedFleets;
     public GUI_Player gui_player;
 

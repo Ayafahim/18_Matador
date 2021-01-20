@@ -3,7 +3,7 @@ package com.company.Controllers.helper;
 import com.company.Models.Fields.*;
 import gui_fields.*;
 
-public class ConvertHelper {
+public class ConvertHelper {// den kaster vores normale felter om til gui felter
     public static GUI_Field[] guiFieldConvert(Field[] fields) {
         GUI_Field[] gui_fields = new GUI_Field[fields.length];
         for (int i = 0; i < fields.length; i++) {
@@ -11,9 +11,9 @@ public class ConvertHelper {
                 gui_fields[i] = new GUI_Street();
                 gui_fields[i].setTitle(fields[i].getName());
                 gui_fields[i].setSubText(((Street) fields[i]).getSubText());
-                gui_fields[i].setBackGroundColor(fields[i].getBgColor());
+                gui_fields[i].setBackGroundColor(fields[i].getBgColor());// set metode er gui metoden og get er vores metode
                 gui_fields[i].setForeGroundColor(fields[i].getFgColor());
-            } else if (fields[i] instanceof Brewery) {
+            } else if (fields[i] instanceof Brewery) {// vi har en metode af gui array og konventere den
                 gui_fields[i] = new GUI_Brewery();
                 gui_fields[i].setTitle(fields[i].getName());
                 gui_fields[i].setSubText(((Brewery) fields[i]).getSubText());
